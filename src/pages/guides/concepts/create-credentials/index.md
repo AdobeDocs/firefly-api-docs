@@ -8,6 +8,7 @@ This page contains instructions for these admins to create project keys for thei
 
 Navigate to the __API and services__ section. Search for __Adobe Firefly API__.
 
+![Testing SVG](../../images/Adobe_Express_logo.svg)
 ![API and services page - Firefly API card](../../images/firefly_api_card.png)
 
 Can't find the Adobe Firefly API ? No worries, give it a few minutes and try again. Reach out to your Adobe liaison if you cannot see the Firefly API product card.
