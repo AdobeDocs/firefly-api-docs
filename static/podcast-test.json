@@ -1,0 +1,604 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Audio Services: Enhance Speech API",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/assets": {
+      "post": {
+        "summary": "Create an asset (to be subsequently uploaded via the returned upload_url)",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ],
+            "api_key": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "201": {
+            "description": "Asset created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/asset"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Request missing required parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "filename": {
+                    "type": "string"
+                  },
+                  "byte_size": {
+                    "type": "integer"
+                  },
+                  "checksum": {
+                    "type": "string"
+                  },
+                  "content_type": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "filename",
+                  "byte_size",
+                  "checksum",
+                  "content_type"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{id}": {
+      "get": {
+        "summary": "Show an asset",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ],
+            "api_key": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Asset does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "200": {
+            "description": "Asset is ready_for_processing when blob is attached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/asset"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an asset",
+        "tags": [
+          "Assets"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Asset does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "204": {
+            "description": "Asset successfully deleted"
+          }
+        }
+      }
+    },
+    "/v1/assets/{asset_id}/speech_enhancements": {
+      "parameters": [
+        {
+          "name": "asset_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "post": {
+        "summary": "Create a speech enhancement",
+        "tags": [
+          "Speech Enhancements"
+        ],
+        "parameters": [
+
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ],
+            "api_key": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "202": {
+            "description": "Speech enhancement accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/speech_enhancement"
+                }
+              }
+            }
+          },
+          "303": {
+            "description": "Speech enhancement found"
+          },
+          "422": {
+            "description": "Speech enhancement not created",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "non_ready_asset": {
+                    "value": {
+                      "error": {
+                        "message": "Asset has not been uploaded yet"
+                      }
+                    },
+                    "summary": "Asset has not had a file uploaded"
+                  },
+                  "non_enhanceable_asset": {
+                    "value": {
+                      "error": {
+                        "message": "Asset is not enhanceable"
+                      }
+                    },
+                    "summary": "Asset has a file, but enhancing has failed unexpectedly",
+                    "description": "Further requests to create enhancements for the same asset will fail. If the client is sure the file is enhanceable, they can create a new asset and try again"
+                  }
+                },
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Asset does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "strength": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "strength"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{asset_id}/speech_enhancements/{speech_enhancement_id}": {
+      "get": {
+        "summary": "Get an speech enhancement",
+        "tags": [
+          "Speech Enhancements"
+        ],
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "speech_enhancement_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ],
+            "api_key": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "200": {
+            "description": "Speech enhancement found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/speech_enhancement"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Speech enhancement not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/assets/{asset_id}/speech_enhancements/{speech_enhancement_id}/download": {
+      "get": {
+        "summary": "Download the successful speech enhancement",
+        "tags": [
+          "Speech Enhancements"
+        ],
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "speech_enhancement_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearer_auth": [
+
+            ],
+            "api_key": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "302": {
+            "description": "Speech enhancement found and finished processing"
+          },
+          "404": {
+            "description": "Speech enhancement not found"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://firefly-api-enterprise-stage.adobe.io/audio_services"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearer_auth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "api_key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key"
+      }
+    },
+    "schemas": {
+      "asset": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": false
+          },
+          "filename": {
+            "type": "string",
+            "nullable": false
+          },
+          "upload_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": false
+          },
+          "byte_size": {
+            "type": "integer",
+            "nullable": true
+          },
+          "checksum": {
+            "type": "string",
+            "nullable": true
+          },
+          "content_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": false
+          },
+          "created_at": {
+            "type": "string",
+            "nullable": false
+          }
+        },
+        "required": [
+          "id",
+          "filename",
+          "status",
+          "updated_at",
+          "created_at"
+        ]
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "message"
+            ]
+          }
+        },
+        "required": [
+          "error"
+        ]
+      },
+      "speech_enhancement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": false
+          },
+          "strength": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "nullable": false
+          },
+          "model_id": {
+            "type": "string",
+            "nullable": false
+          },
+          "asset_id": {
+            "type": "string",
+            "nullable": false
+          },
+          "requested_processing_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": false
+          },
+          "finished_processing_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "download_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "failed",
+              "succeeded",
+              "processing",
+              "queued"
+            ],
+            "nullable": false
+          }
+        },
+        "required": [
+          "id",
+          "strength",
+          "model_id",
+          "asset_id",
+          "requested_processing_at",
+          "status"
+        ]
+      }
+    }
+  }
+}
