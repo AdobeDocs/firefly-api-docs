@@ -133,7 +133,6 @@ To do this, we need to upload valid data to the object store using the `upload_u
 We accomplish this by making a `PUT` request to the `upload_url` with the `Asset`'s content,
 using the checksum computed earlier as the value for the `Content-MD5` header and setting the `Content-Type` header to match the `content_type` provided when creating the `Asset`:
 
-
 ```sh
 curl --request PUT 'https://phonos-recordings-staging.s3-accelerate.amazonaws.com/Assets/3445d7a0-2513-4606-b37b-bff0034c0214?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAS2MU72M7ACPXX764%2F20240409%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240409T213836Z&X-Amz-Expires=43200&X-Amz-Security-Token=FwoGZXIvYXdzEPf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDMyjVxJyIRosE7smGSLJAWqfi8jqgkF0iiCYFU1nq3xAzNalFsrmbNnJRpWZvOSjGREvQftcLr%2FVgG9rjuz1cskXD3H8umxVLOS6oVmjHdt0wmaRtx5C6ZvGp8tW7BL%2F0hsuuU%2FmmG0n8QmmuQjA%2BfeaRkwR6Fgw85SryaPZUxzXhX9Y2BypyeBDX1H5JTPUYpZA0fAu1g9nYncsIjbNgnBJvr5e42gBnJZQSyAeeE3dA%2BK9btul5QapF5of4JTHXngkhLSBm819JD9iXRjRiUAUfoofGYfDhiiw5NawBjItFfJCqsABzKqETJ6q87zlAHajnVODPJgGowODSXrrqNd%2BTnV%2B73UXZTYKNukt&X-Amz-SignedHeaders=content-length%3Bcontent-md5%3Bcontent-type%3Bhost&X-Amz-Signature=45bad70aa97e89bf6120a7a0ec22b0dfc4771060922c50e1ec5c876f13252c49' \
 --header 'Content-MD5: AWzJTRSXGy5JsL+Phh/cFA==' \
@@ -142,7 +141,7 @@ curl --request PUT 'https://phonos-recordings-staging.s3-accelerate.amazonaws.co
 ```
 
 If the upload request succeeds, you'll receive `200` response with an empty body.
-If you receive a `400`-level response, double check that you are providing the exact same `Content-Type` and `Content-MD5` as supplied when creating the `Asset` via  `POST /audio_services/v1/assets`. 
+If you receive a `400`-level response, double check that you are providing the exact same `Content-Type` and `Content-MD5` as supplied when creating the `Asset` via  `POST /audio_services/v1/assets`.
 
 For more details on our object store's (AWS S3) `PUT` API, including links to language-specific S3 clients, please consult the [PutObject documentation][putobject-docs].
 
@@ -258,7 +257,7 @@ Once the `status` is `succeeded`, a non-null `download_url` is included in the r
 
 ### Step 5: Download the speech enhancement
 
-To download the `SpeechEnhancement`, make a `GET` request to `download_url` displayed above. This will redirect to a (short-lived) pre-signed URL that will enable the downloading of the enhanced audio from AWS S3. 
+To download the `SpeechEnhancement`, make a `GET` request to `download_url` displayed above. This will redirect to a (short-lived) pre-signed URL that will enable the downloading of the enhanced audio from AWS S3.
 
 ```sh
 curl 'https://firefly-api-enterprise-stage.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements/b877bc56-9c17-4efb-8eec-b5839cd7f555/download' \
