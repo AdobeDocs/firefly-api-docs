@@ -6,8 +6,8 @@ description: This how-to guides you through the process of integrating the Firef
 # Enhancing Audio Files with the Enhance Speech API
 
 The Enhance Speech API, part of Adobe Audio Services, enables rich workflow automation around audio post-production.
-This guide will demonstrate how to run the Enhance Speech model for your audio assets.
-To accomplish this, we'll walk you through how to create and upload data for an audio `Asset`, create a `SpeechEnhancement` and download its data when ready.
+This guide will demonstrate how to create enhanced (noise and echo-free) versions of your spoken-audio assets.
+To accomplish this, we'll walk you through how to create and upload data for an audio `Asset`, create a `SpeechEnhancement`, and download its data when ready.
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ To complete this tutorial, you will need:
 * Firefly API credentials. If you don't have them yet, first visit the Firefly Services [Getting Started](../../../guides/get-started.md) guide to obtain a `client_id` and `client_secret`.
 * An HTTP client, like [Postman](https://www.postman.com/).
 
-Before getting started, we strongly encourage you to explore [Enhance Speech within Adobe Podcast][esqa-link]. The audio enhancement technology that backs this API is the same as the one available on the web, so exploring there will allow you to develop an intuition for how Enhance Speech works, without writing any code!
+Before getting started, we strongly encourage you to explore [Enhance Speech within Adobe Podcast][esqa-link]. The audio enhancement technology that backs this API is the same as the one available on the web, so exploring there will allow you to develop an intuition for how speech enhancement impacts audio, without writing any code!
 
 ## Concepts
 
 Before we dive into the API, it will be helpful to level-set on the following concepts:
 
-1. `Asset`: An `Asset` represents a file that contains audio that can be processed by Enhance Speech. Currently, the Enhance Speech API only support audio-only files like MP3 files. However, we might support other files that contain audio (like video files), in the future.
+1. `Asset`: An `Asset` represents a file that contains audio that is compatible with speech enhancement. Currently, the Enhance Speech API only support audio-only files, like .mp3 files. However, we might support other files that contain audio (like video files), in the future.
 2. `SpeechEnhancement`: A `SpeechEnhancement` represents an `Asset` that has been enhanced at a particular strength. As you can enhance an `Asset` at multiple strengths, it possible to have many `SpeechEnhancement`s for a given `Asset`.
 
 [esqa-link]:https://podcast.adobe.com/enhance
@@ -36,18 +36,19 @@ such a token.
 
 ### Step 1: Create an asset
 
-Before we can run the Enhance Speech model on our assets, we need to register a new asset with Adobe.
+Before we can run speech enhancement on an `Asset`, we need to register a new `Asset` with the Enhance Speech API.
 To accomplish this, we use the `POST /audio_services/v1/assets` endpoint.
+
 This endpoint requires, as a JSON request body, the following information:
 
 * `filename`:
-    * Description: A filename (with extension) of the asset. We use this filename when naming the final speech enhancement.
+    * Description: A filename (with extension) of the asset. We use this filename when naming the downloaded file for a downstream `SpeechEnhancement`.
     * Example: "earhart-aviation.mp3"
 * `byte_size`:
     * Description: The number of bytes of the asset.
     * Example: 59400
 * `checksum`
-    * Description: The MD5 checksum of the asset.
+    * Description: The base64-encoded MD5 checksum of the asset.
     * Example: "AWzJTRSXGy5JsL+Phh/cFA=="
 * `content_type`
     * Description: The content type of the asset.
@@ -87,7 +88,7 @@ If all goes well, we'll get a `201 Created` response, with a payload like the fo
 }
 ```
 
-As we can see in the API response, the `status` of this `Asset` is `waiting_for_upload`, which indicates we can't use it to create `SpeechEnhancement`s for it until we upload data for it.
+As we can see in the API response, the `status` of this `Asset` is `waiting_for_upload`, which indicates we can't use it to create `SpeechEnhancement`s until we upload data for the `Asset`.
 
 In the event that request parameters are structurally or semantically invalid, we'll get a `422` response. See the API specification for details.
 
@@ -97,13 +98,13 @@ An MD5 checksum is standard way to construct the equivalent of a human fingerpri
 If two files have the same MD5 checksum, then they almost certainly are the same file.
 Critically, a MD5 checksum is *not* a credential and does not need to be treated as such, it only serves as a way to easily check identity.
 
-For the sake of example, we'll use the CLI tools `openssl` and `base64` to demonstrate how to compute the MD5 checksum for a file:
+For the sake of example, we'll use the CLI tools `openssl` and `base64` to demonstrate how to compute the base64-encoded MD5 checksum for a file:
 
 ```sh
 $ openssl dgst -md5 -binary /path/to/earhart-aviation.mp3 | base64
 ```
 
-There are language-specific libraries for computing the MD5 checksum. For instance, in Python, you can compose `hashlib` and `base64` to compute the checksum.
+There are language-specific libraries for computing a base64-encoded MD5 checksum. For instance, in Python, you can compose `hashlib` and `base64` to compute the checksum.
 
 ```python
 import hashlib
@@ -130,7 +131,7 @@ In order to create `SpeechEnhancement`s for the `Asset`, the `Asset`'s `status` 
 To do this, we need to upload valid data to the object store using the `upload_url` included in the response to `POST /audio_services/v1/assets`.
 
 We accomplish this by making a `PUT` request to the `upload_url` with the `Asset`'s content,
-using the checksum computed earlier as the value for the `Content-MD5` header and setting the `Content-Type` header to match the `content_type` provided when creating the asset:
+using the checksum computed earlier as the value for the `Content-MD5` header and setting the `Content-Type` header to match the `content_type` provided when creating the `Asset`:
 
 
 ```sh
@@ -174,7 +175,7 @@ curl --request GET 'https://firefly-api-enterprise-stage.adobe.io/audio_services
 
 #### Checking upload validity
 
-As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the Enhance Speech API, is to `GET /audio_services/v1/assets/:id` and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed. Example response:
+As an API client, the best way to ensure that not only did the `PUT` request above go through successfully, but was successfully registered by the Enhance Speech API, is to `GET /audio_services/v1/assets/:id` and ensure that `status` shows `ready_for_processing`. Once the `Asset` is `ready_for_processing`, an `upload_url` will no longer be displayed:
 
 ```json
 {
@@ -192,7 +193,7 @@ As an API client, the best way to ensure that not only did the `PUT` request abo
 
 ### Step 3: Create a speech enhancement
 
-Now that we have an `Asset` that is `ready_for_processing`, we can create a `SpeechEnhancement` for it, which will run the `Asset` through the Enhance Speech model at a given strength using the `POST audio_services/v1/assets/:id/speech_enhancements` endpoint:
+Now that we have an `Asset` that is `ready_for_processing`, we can create a `SpeechEnhancement` for it, at a given strength, using the `POST audio_services/v1/assets/:id/speech_enhancements` endpoint:
 
 ```sh
 curl --location 'https://firefly-api-enterprise-stage.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements' \
@@ -221,9 +222,10 @@ Assuming that the `Asset` is `ready_for_processing` and the request of the reque
 
 ### Step 4: Poll to learn when the speech enhancement is complete
 
-As indicated by the `202 Accepted` response code. A `SpeechEnhancement` is not immediately acted upon.
+As indicated by the `202 Accepted` response code, a `SpeechEnhancement` is not immediately acted upon by the API.
 
 Currently, a single `SpeechEnhancement` will be proceeded per API client - there is no parallel processing of speech enhancements.
+
 For example, if you create 5 assets via `POST /audio_services/v1/assets`, upload data for all of them, and then create 5 speech enhancements via `POST audio_services/v1/assets/:id/speech_enhancements`,
 only 1 of those speech enhancements will be processed at any given time (the order of processing will be from oldest to newest).
 
@@ -256,7 +258,7 @@ Once the `status` is `succeeded`, a non-null `download_url` is included in the r
 
 ### Step 5: Download the speech enhancement
 
-To download the speech enhancement, make a `GET` request to `download_url` displayed above. This will redirect to a (short-lived) pre-signed URL that will enable the downloading of the enhanced asset from S3. 
+To download the `SpeechEnhancement`, make a `GET` request to `download_url` displayed above. This will redirect to a (short-lived) pre-signed URL that will enable the downloading of the enhanced audio from AWS S3. 
 
 ```sh
 curl 'https://firefly-api-enterprise-stage.adobe.io/audio_services/v1/assets/3445d7a0-2513-4606-b37b-bff0034c0214/speech_enhancements/b877bc56-9c17-4efb-8eec-b5839cd7f555/download' \
@@ -267,6 +269,8 @@ curl 'https://firefly-api-enterprise-stage.adobe.io/audio_services/v1/assets/344
 ```
 
 (`--location` tells curl to follow redirects, `--remote-name --remote-header-name` tells curl to use the `Content-Disposition` response header when naming the output file.)
+
+This will result in a file named "earhart-aviation-enhanced-93p.mp3" saved at the your current working directory!
 
 [202-mdm-docs]:https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202
 [putobject-docs]:https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html
