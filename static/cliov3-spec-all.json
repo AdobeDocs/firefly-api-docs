@@ -1891,12 +1891,12 @@
           "promptHasDeniedWords": {
             "type": "boolean",
             "title": "The prompt had denied words",
-            "description": "The user may see that the generation does not comply to its full prompt"
+            "description": "The user may see that the generation does not comply to its full prompt."
           },
           "promptHasBlockedArtists": {
             "type": "boolean",
             "title": "The prompt had artists that were blocked",
-            "description": "The user may see that the generation does not comply to its full prompt"
+            "description": "The user may see that the generation does not comply to its full prompt."
           },
           "photoSettings": {
             "allOf": [
@@ -1905,7 +1905,7 @@
               }
             ],
             "title": "The photo settings used for generation",
-            "description": "Only specified if content class was detected as photo"
+            "description": "Only specified if content class was detected as photo."
           },
           "contentClass": {
             "allOf": [
@@ -1914,7 +1914,7 @@
               }
             ],
             "title": "The detected content class",
-            "description": "Will be same as input, if input was specified"
+            "description": "Will be same as input, if input was specified."
           }
         },
         "type": "object",
@@ -1939,7 +1939,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "title": "The seed of each variation",
-            "description": "If specified alongside with n, the number of seeds must be the equal to n"
+            "description": "If specified alongside with n, the number of seeds must be the equal to n."
           },
           "size": {
             "allOf": [
@@ -1975,7 +1975,7 @@
               }
             ],
             "title": "Object placement",
-            "description": "Determines placement of object in output image"
+            "description": "Determines placement of object in output image."
           }
         },
         "type": "object",
@@ -2099,7 +2099,7 @@
               }
             ],
             "title": "JXL image encoding parameters",
-            "description": "Set of parameters for fine-tuning output images in JXL format"
+            "description": "Set of parameters for fine-tuning output images in JXL format."
           }
         },
         "type": "object",
@@ -2139,7 +2139,7 @@
               }
             ],
             "title": "Source image",
-            "description": "Source image which will be used to expand, fill or generate similar images"
+            "description": "Source image which will be used to expand, fill or generate similar images."
           },
           "mask": {
             "allOf": [
@@ -2148,7 +2148,7 @@
               }
             ],
             "title": "Mask image",
-            "description": "Mask image which will be used replace the backgound of the image"
+            "description": "Mask image which will be used replace the backgound of the image."
           }
         },
         "type": "object",
@@ -2180,7 +2180,7 @@
           "seed": {
             "type": "integer",
             "title": "The seed used for the generation",
-            "description": "The seed description"
+            "description": "The seed description."
           },
           "image": {
             "allOf": [
@@ -2188,7 +2188,7 @@
                 "$ref": "#/components/schemas/PublicBinary"
               }
             ],
-            "title": "The pre-signed URL used to download the image",
+            "title": "The pre-signed URL used to download the image.",
             "description": "The URL description"
           }
         },
@@ -2203,14 +2203,14 @@
             "maximum": 22,
             "minimum": 1.2,
             "title": "The styles to be used for image generation",
-            "description": "You can specify a preset, a reference image or both"
+            "description": "You can specify a preset, a reference image or both."
           },
           "shutterSpeed": {
             "type": "number",
             "maximum": 10,
             "minimum": 0.0005,
             "title": "Shutter speed, seconds",
-            "description": "You can use fractions of a second like 1/4000 or whole seconds"
+            "description": "You can use fractions of a second like 1/4000 or whole seconds."
           },
           "fieldOfView": {
             "type": "integer",
@@ -2233,7 +2233,7 @@
               }
             ],
             "title": "Margin values in target size",
-            "description": "Margin values in target size"
+            "description": "Margin values in target size."
           }
         },
         "type": "object",
@@ -2272,7 +2272,7 @@
             "type": "string",
             "format": "uuid4",
             "title": "The internal id for a storage item",
-            "description": "This is coming from other outputs"
+            "description": "This is coming from other outputs."
           },
           "url": {
             "type": "string",
@@ -2280,7 +2280,7 @@
             "minLength": 1,
             "format": "uri",
             "title": "The presigned url",
-            "description": "This URL will expire in one hour"
+            "description": "This URL will expire in one hour."
           }
         },
         "type": "object",
@@ -2304,7 +2304,7 @@
             "minItems": 1,
             "uniqueItems": true,
             "title": "The seed of each variation",
-            "description": "If specified alongside with n, the number of seeds must be the equal to n"
+            "description": "If specified alongside with n, the number of seeds must be the equal to n."
           },
           "size": {
             "allOf": [
@@ -2313,7 +2313,7 @@
               }
             ],
             "title": "The size",
-            "description": "The size of the requested generations",
+            "description": "The size of the requested generations.",
             "default": {
               "width": 2048,
               "height": 2048
@@ -2324,7 +2324,7 @@
             "maxLength": 1024,
             "minLength": 1,
             "title": "The prompt",
-            "description": "The prompt used to generate the image. The longer the prompt - the better"
+            "description": "The prompt used to generate the image. The longer the prompt - the better."
           },
           "image": {
             "allOf": [
@@ -2332,7 +2332,7 @@
                 "$ref": "#/components/schemas/InputImage"
               }
             ],
-            "title": "Source image and mask image.",
+            "title": "Source image and mask image",
             "description": "Source image from which background needs to be replaced with a optional mask."
           },
           "contentInsertion": {
@@ -2342,7 +2342,7 @@
               }
             ],
             "title": "Content Insertion",
-            "description": "The image to insert the content from"
+            "description": "The image to insert the content from."
           }
         },
         "type": "object",
@@ -2402,7 +2402,7 @@
               }
             ],
             "title": "A structure reference image",
-            "description": "Firefly will detect the structure in the image and apply the same in the generated image"
+            "description": "Firefly will detect the structure in the image and apply the same in the generated image."
           },
           "strength": {
             "type": "integer",
@@ -2425,7 +2425,7 @@
             "type": "array",
             "uniqueItems": true,
             "title": "The style presets",
-            "description": "You can specify an ID for a style"
+            "description": "You can specify an ID for a style."
           },
           "source": {
             "allOf": [
@@ -2434,7 +2434,7 @@
               }
             ],
             "title": "A style image reference",
-            "description": "Firefly will detect the style in the image and apply the same style in the generated image"
+            "description": "Firefly will detect the style in the image and apply the same style in the generated image."
           },
           "strength": {
             "type": "integer",
@@ -2454,7 +2454,7 @@
         "properties": {
           "images": {
             "type": "array",
-            "description": "Array of objects containing asset ID",
+            "description": "Array of objects containing asset ID.",
             "items": {
               "allOf": [
                 {
