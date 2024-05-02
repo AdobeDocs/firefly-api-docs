@@ -17,12 +17,6 @@
           "AccessToken": []
       }
   ],
-  "tags": [
-      {
-          "name": "public",
-          "description": "Publically available, reviewed APIs that are ready to be integrated in products"
-      }
-  ],
   "paths": {
       "/v3/images/generate": {
           "post": {
