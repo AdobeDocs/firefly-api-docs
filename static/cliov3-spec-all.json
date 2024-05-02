@@ -26,7 +26,6 @@
   "paths": {
       "/v3/images/generate": {
           "post": {
-              "tags": ["public"],
               "summary": "Generate images API",
               "operationId": "generateImages",
               "description": "Generate images based on a prompt with optional reference image to match style",
@@ -226,7 +225,6 @@
       },
       "/v2/storage/image": {
           "post": {
-              "tags": ["public"],
               "summary": "Upload API",
               "operationId": "upload",
               "description": "Upload any content, such as images, videos, or documents. This api provides an opaque ID for referencing the uploaded content in other firefly apis. ",
@@ -439,7 +437,6 @@
       },
       "/v3/images/generate-similar": {
           "post": {
-              "tags": ["public"],
               "summary": "Generate Similar Images API",
               "operationId": "generateSimilarImages",
               "description": "Generate similar Images based on the reference image",
@@ -639,7 +636,6 @@
       },
       "/v3/images/expand": {
           "post": {
-              "tags": ["public"],
               "summary": "Expand Image API",
               "operationId": "expandImage",
               "description": "Expand an image to a new size/aspect ratio",
@@ -839,7 +835,6 @@
       },
       "/v3/images/fill": {
           "post": {
-              "tags": ["public"],
               "summary": "Fill Image API",
               "operationId": "fillImage",
               "description": "Fill the masked area of an image with an optional prompt",
@@ -1039,7 +1034,6 @@
       },
       "/v3/images/background-replace": {
           "post": {
-              "tags": ["public"],
               "summary": "Background Replace API",
               "operationId": "replaceBackground",
               "description": "Replace background of an image with a prompt",
@@ -1239,7 +1233,6 @@
       },
       "/v3/images/generate-object-composite": {
           "post": {
-              "tags": ["v3"],
               "summary": "Generate Object Composite API",
               "operationId": "generateObjectComposite",
               "description": "Create object composites by placing an object in a desired position and generating backgrounds with a prompt",
