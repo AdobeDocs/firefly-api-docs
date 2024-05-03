@@ -2105,7 +2105,7 @@
                           }
                       ],
                       "title": "Background Mask",
-                      "description": "Background Mask"
+                      "description": "Background mask. "
                   }
               },
               "type": "object",
@@ -2121,7 +2121,7 @@
                           }
                       ],
                       "title": "Source image",
-                      "description": "Source image which will be used to expand, fill or generate similar images"
+                      "description": "Source image which will be used to expand, fill or generate similar images."
                   },
                   "mask": {
                       "allOf": [
@@ -2262,7 +2262,7 @@
                       "minLength": 1,
                       "format": "uri",
                       "title": "The presigned url",
-                      "description": "This URL will expire in one hour"
+                      "description": "This URL will expire in one hour."
                   }
               },
               "type": "object",
