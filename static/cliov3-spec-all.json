@@ -1228,7 +1228,7 @@
           "post": {
               "summary": "Generate Object Composite API",
               "operationId": "generateObjectComposite",
-              "description": "Create images by placing a reference object image(with or without mask) in a desired position and generating backgrounds with a prompt.",
+              "description": "Upload an image(with or without mask), such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
               "requestBody": {
                   "description": "Object composite generation request body.",
                   "content": {
