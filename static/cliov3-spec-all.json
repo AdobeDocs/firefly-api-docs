@@ -1547,8 +1547,8 @@
                       "type": "integer",
                       "maximum": 4,
                       "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                      "title": "The number of variations.",
+                      "description": "Identifier used to customize image generation processes. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
                   },
                   "seeds": {
                       "items": {
@@ -1559,7 +1559,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with numVariations, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
@@ -1656,7 +1656,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with numVariations, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
@@ -1764,7 +1764,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
@@ -1923,7 +1923,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
@@ -2011,7 +2011,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
@@ -2162,7 +2162,7 @@
                   "seed": {
                       "type": "integer",
                       "title": "The seed used for the generation",
-                      "description": "The seed description"
+                      "description": "Identifier used to customize image generation processes."
                   },
                   "image": {
                       "allOf": [
@@ -2275,7 +2275,7 @@
                       "maximum": 4,
                       "minimum": 1,
                       "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                      "description": "Identifier used to customize image generation processes. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
                   },
                   "seeds": {
                       "items": {
@@ -2286,7 +2286,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
