@@ -2261,7 +2261,7 @@
                       "minLength": 1,
                       "format": "uri",
                       "title": "The presigned url",
-                      "description": "The Reference to signed url of the image."
+                      "description": "The reference to signed url of the image."
                   }
               },
               "type": "object",
