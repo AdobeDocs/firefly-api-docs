@@ -2121,7 +2121,7 @@
                           }
                       ],
                       "title": "Source image",
-                      "description": "Source image which will be used to expand, fill or generate similar images."
+                      "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                   "mask": {
                       "allOf": [
