@@ -2170,8 +2170,7 @@
                               "$ref": "#/components/schemas/PublicBinary"
                           }
                       ],
-                      "title": "The pre-signed URL used to download the image",
-                      "description": "The URL description"
+                      "description": "A valid Storage Item containing both an internal ID and a pre-signed URL. The pre-signed URL will expire in one hour."
                   }
               },
               "type": "object",
@@ -2262,7 +2261,7 @@
                       "minLength": 1,
                       "format": "uri",
                       "title": "The presigned url",
-                      "description": "This URL will expire in one hour."
+                      "description": "The Reference to signed url of the image."
                   }
               },
               "type": "object",
