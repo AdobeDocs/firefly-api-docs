@@ -1907,12 +1907,12 @@
           },
           "GenerateObjectCompositeRequest": {
               "properties": {
-                  "n": {
+                  "numVariations": {
                       "type": "integer",
                       "maximum": 4,
                       "minimum": 1,
                       "title": "The number of variations",
-                      "description": "N will default to the number of seeds, or to 1 if seeds is not specified."
+                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
                   },
                   "seeds": {
                       "items": {
