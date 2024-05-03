@@ -631,7 +631,7 @@
           "post": {
               "summary": "Expand Image API",
               "operationId": "expandImage",
-              "description": "Expand an image to a new size/aspect ratio.",
+              "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt.",
               "requestBody": {
                   "description": "image expansion request body.",
                   "content": {
