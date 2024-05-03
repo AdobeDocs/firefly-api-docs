@@ -221,7 +221,7 @@
           "post": {
               "summary": "Upload API",
               "operationId": "upload",
-              "description": "Upload any content, such as images, videos, or documents. This api provides an opaque ID for referencing the uploaded content in other firefly apis. ",
+        "description": "Upload source image or mask for Image-to-Image operations, such as  fill, expand. This api returns an identifier that is used to refer to uploaded content.",
               "requestBody": {
                   "content": {
                       "image/jpeg": {
@@ -1559,7 +1559,7 @@
                       "minItems": 1,
                       "uniqueItems": true,
                       "title": "The seed of each variation",
-                      "description": "If specified alongside with n, the number of seeds must be the equal to n"
+                      "description": "If specified alongside with numVariations, the number of seeds must be the equal to n"
                   },
                   "size": {
                       "allOf": [
