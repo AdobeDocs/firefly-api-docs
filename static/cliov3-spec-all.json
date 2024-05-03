@@ -1969,12 +1969,6 @@
           },
           "GenerateObjectCompositeResponse": {
               "properties": {
-                  "version": {
-                      "type": "string",
-                      "minLength": 0,
-                      "title": "The version",
-                      "description": "The version of the Text to Image feature."
-                  },
                   "outputs": {
                       "items": {
                           "$ref": "#/components/schemas/OutputImage"
@@ -1995,7 +1989,7 @@
                   }
               },
               "type": "object",
-              "required": ["version", "outputs", "size"],
+              "required": ["outputs", "size"],
               "title": "GenerateObjectCompositeResponse",
               "description": "Generating object composite from prompt"
           },
