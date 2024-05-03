@@ -22,7 +22,7 @@
           "post": {
               "summary": "Generate images API",
               "operationId": "generateImages",
-              "description": "Generate images based on a prompt with optional reference image to match style",
+              "description": "Generate images based on a prompt with optional reference image to match style.",
               "requestBody": {
                   "description": "image generation request body.",
                   "content": {
@@ -432,7 +432,7 @@
           "post": {
               "summary": "Generate Similar Images API",
               "operationId": "generateSimilarImages",
-              "description": "Generate similar Images based on the reference image",
+              "description": "Generate similar Images based on the reference image.",
               "requestBody": {
                   "description": "Generate similar images request body",
                   "content": {
@@ -631,7 +631,7 @@
           "post": {
               "summary": "Expand Image API",
               "operationId": "expandImage",
-              "description": "Expand an image to a new size/aspect ratio",
+              "description": "Expand an image to a new size/aspect ratio.",
               "requestBody": {
                   "description": "image expansion request body.",
                   "content": {
@@ -830,7 +830,7 @@
           "post": {
               "summary": "Fill Image API",
               "operationId": "fillImage",
-              "description": "Fill the masked area of an image with an optional prompt",
+              "description": "Fill the masked area of an image with an optional prompt.",
               "requestBody": {
                   "description": "image fill request body.",
                   "content": {
@@ -1029,7 +1029,7 @@
           "post": {
               "summary": "Background Replace API",
               "operationId": "replaceBackground",
-              "description": "Replace background of an image with a prompt",
+              "description": "Replace background of an image with a prompt.",
               "requestBody": {
                   "description": "image background replace request body.",
                   "content": {
@@ -1228,7 +1228,7 @@
           "post": {
               "summary": "Generate Object Composite API",
               "operationId": "generateObjectComposite",
-              "description": "Create object composites by placing an object in a desired position and generating backgrounds with a prompt",
+              "description": "Create images by placing a reference object image(with or without mask) in a desired position and generating backgrounds with a prompt.",
               "requestBody": {
                   "description": "Object composite generation request body.",
                   "content": {
