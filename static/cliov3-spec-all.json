@@ -2104,7 +2104,7 @@
                           }
                       ],
                       "title": "Background Mask",
-                      "description": "Background mask. "
+                      "description": "Background mask.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
                   }
               },
               "type": "object",
