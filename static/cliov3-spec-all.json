@@ -1027,7 +1027,7 @@
       },
       "/v3/images/background-replace": {
           "post": {
-              "summary": "Background Replace API",
+              "summary": "Replace Background API",
               "operationId": "replaceBackground",
               "description": "Replace background of an image with a prompt.",
               "requestBody": {
