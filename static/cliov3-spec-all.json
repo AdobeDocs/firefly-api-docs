@@ -28,191 +28,194 @@
                   "content": {
                       "application/json": {
                           "schema": {
-                              "$ref": "#/components/schemas/GenerateImagesRequest"
+                              "$ref": "#/components/schemas/GenerateImagesRequestV3"
                           }
                       }
                   },
                   "required": true
               },
               "responses": {
-                  "200": {
-                      "description": "Generate images response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/GenerateImagesResponse"
-                              }
-                          }
+                "200": {
+                    "description": "Successful Response",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/GenerateImagesResponseV3"
+                        }
                       }
+                    }
                   },
                   "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
+                    "description": "Bad Request",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "bad_request": {
+                            "value": {
+                              "error_code": "bad_request"
+                            }
                           }
+                        }
                       }
+                    }
                   },
                   "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
+                    "description": "Forbidden",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "access_error": {
+                            "value": {
+                              "error_code": "access_error"
+                            }
                           }
+                        }
                       }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
+                    }
                   },
                   "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
+                    "description": "Request Timeout",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "timeout_error": {
+                            "value": {
+                              "error_code": "timeout_error"
+                            }
                           }
+                        }
                       }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
+                    }
                   },
                   "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
+                    "description": "Unsupported Media Type",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "invalid_content_type": {
+                            "value": {
+                              "error_code": "invalid_content_type"
+                            }
                           }
+                        }
                       }
+                    }
                   },
                   "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
+                    "description": "Unprocessable Entity",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "validation_error": {
+                            "value": {
+                              "error_code": "validation_error",
+                              "validation_errors": [
+                                {
+                                  "loc": [
+                                    "body",
+                                    "contentClass"
+                                  ],
+                                  "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                  "type": "type_error.enum",
+                                  "ctx": {
+                                    "enum_values": [
+                                      "photo",
+                                      "art"
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          "prompt_unsafe": {
+                            "value": {
+                              "error_code": "prompt_unsafe"
+                            }
+                          },
+                          "input_media_unsafe": {
+                            "value": {
+                              "error_code": "input_media_unsafe"
+                            }
+                          },
+                          "output_media_unsafe": {
+                            "value": {
+                              "error_code": "output_media_unsafe"
+                            }
+                          },
+                          "language_not_supported": {
+                            "value": {
+                              "error_code": "language_not_supported"
+                            }
                           }
+                        }
                       }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
+                    }
                   },
                   "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
+                    "description": "Internal Server Error",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "runtime_error": {
+                            "value": {
+                              "error_code": "runtime_error"
+                            }
                           }
+                        }
                       }
+                    }
                   },
                   "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
+                    "description": "Not Implemented",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "not_implemented": {
+                            "value": {
+                              "error_code": "not_implemented"
+                            }
                           }
+                        }
                       }
+                    }
                   },
                   "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
+                    "description": "Service Unavailable",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/ApiError"
+                        },
+                        "examples": {
+                          "model_not_loaded": {
+                            "value": {
+                              "error_code": "model_not_loaded"
+                            }
                           }
+                        }
                       }
+                    }
                   }
               }
           }
@@ -434,196 +437,198 @@
               "operationId": "generateSimilarImages",
               "description": "Generate similar Images based on the reference image.",
               "requestBody": {
-                  "description": "Generate similar images request body",
-                  "content": {
-                      "application/json": {
-                          "schema": {
-                              "$ref": "#/components/schemas/GenerateSimilarImagesRequest"
-                          }
-                      }
-                  },
-                  "required": true
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                    }
+                  }
+                },
+                "required": true
               },
               "responses": {
-                  "200": {
-                      "description": "Generate similar images response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/GenerateSimilarImagesResponse"
-                              }
-                          }
+                "200": {
+                  "description": "Successful Response",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/GenerateSimilarImagesResponseV3"
                       }
-                  },
-                  "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
-                          }
-                      }
-                  },
-                  "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
-                          }
-                      }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
-                  },
-                  "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
-                          }
-                      }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
-                  },
-                  "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
-                          }
-                      }
-                  },
-                  "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
-                          }
-                      }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
-                  },
-                  "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
-                          }
-                      }
-                  },
-                  "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
-                          }
-                      }
-                  },
-                  "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
-                          }
-                      }
+                    }
                   }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "bad_request": {
+                          "value": {
+                            "error_code": "bad_request"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Forbidden",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "access_error": {
+                          "value": {
+                            "error_code": "access_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "408": {
+                  "description": "Request Timeout",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "timeout_error": {
+                          "value": {
+                            "error_code": "timeout_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "415": {
+                  "description": "Unsupported Media Type",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "invalid_content_type": {
+                          "value": {
+                            "error_code": "invalid_content_type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "422": {
+                  "description": "Unprocessable Entity",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "validation_error": {
+                          "value": {
+                            "error_code": "validation_error",
+                            "validation_errors": [
+                              {
+                                "loc": [
+                                  "body",
+                                  "contentClass"
+                                ],
+                                "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                "type": "type_error.enum",
+                                "ctx": {
+                                  "enum_values": [
+                                    "photo",
+                                    "art"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "prompt_unsafe": {
+                          "value": {
+                            "error_code": "prompt_unsafe"
+                          }
+                        },
+                        "input_media_unsafe": {
+                          "value": {
+                            "error_code": "input_media_unsafe"
+                          }
+                        },
+                        "output_media_unsafe": {
+                          "value": {
+                            "error_code": "output_media_unsafe"
+                          }
+                        },
+                        "language_not_supported": {
+                          "value": {
+                            "error_code": "language_not_supported"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "runtime_error": {
+                          "value": {
+                            "error_code": "runtime_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "501": {
+                  "description": "Not Implemented",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "not_implemented": {
+                          "value": {
+                            "error_code": "not_implemented"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "503": {
+                  "description": "Service Unavailable",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "model_not_loaded": {
+                          "value": {
+                            "error_code": "model_not_loaded"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
           }
       },
@@ -633,196 +638,198 @@
               "operationId": "expandImage",
               "description": "Change the aspect ratio or size of an image and expand its contents with or without a text prompt.",
               "requestBody": {
-                  "description": "image expansion request body.",
-                  "content": {
-                      "application/json": {
-                          "schema": {
-                              "$ref": "#/components/schemas/ExpandImageRequest"
-                          }
-                      }
-                  },
-                  "required": true
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExpandImageRequestV3"
+                    }
+                  }
+                },
+                "required": true
               },
               "responses": {
-                  "200": {
-                      "description": "Expand Image Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ExpandImageResponse"
-                              }
-                          }
+                "200": {
+                  "description": "Successful Response",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ExpandImageResponseV3"
                       }
-                  },
-                  "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
-                          }
-                      }
-                  },
-                  "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
-                          }
-                      }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
-                  },
-                  "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
-                          }
-                      }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
-                  },
-                  "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
-                          }
-                      }
-                  },
-                  "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
-                          }
-                      }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
-                  },
-                  "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
-                          }
-                      }
-                  },
-                  "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
-                          }
-                      }
-                  },
-                  "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
-                          }
-                      }
+                    }
                   }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "bad_request": {
+                          "value": {
+                            "error_code": "bad_request"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Forbidden",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "access_error": {
+                          "value": {
+                            "error_code": "access_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "408": {
+                  "description": "Request Timeout",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "timeout_error": {
+                          "value": {
+                            "error_code": "timeout_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "415": {
+                  "description": "Unsupported Media Type",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "invalid_content_type": {
+                          "value": {
+                            "error_code": "invalid_content_type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "422": {
+                  "description": "Unprocessable Entity",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "validation_error": {
+                          "value": {
+                            "error_code": "validation_error",
+                            "validation_errors": [
+                              {
+                                "loc": [
+                                  "body",
+                                  "contentClass"
+                                ],
+                                "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                "type": "type_error.enum",
+                                "ctx": {
+                                  "enum_values": [
+                                    "photo",
+                                    "art"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "prompt_unsafe": {
+                          "value": {
+                            "error_code": "prompt_unsafe"
+                          }
+                        },
+                        "input_media_unsafe": {
+                          "value": {
+                            "error_code": "input_media_unsafe"
+                          }
+                        },
+                        "output_media_unsafe": {
+                          "value": {
+                            "error_code": "output_media_unsafe"
+                          }
+                        },
+                        "language_not_supported": {
+                          "value": {
+                            "error_code": "language_not_supported"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "runtime_error": {
+                          "value": {
+                            "error_code": "runtime_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "501": {
+                  "description": "Not Implemented",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "not_implemented": {
+                          "value": {
+                            "error_code": "not_implemented"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "503": {
+                  "description": "Service Unavailable",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "model_not_loaded": {
+                          "value": {
+                            "error_code": "model_not_loaded"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
           }
       },
@@ -832,395 +839,198 @@
               "operationId": "fillImage",
               "description": "Fill the masked area of an image with an optional prompt.",
               "requestBody": {
-                  "description": "image fill request body.",
-                  "content": {
-                      "application/json": {
-                          "schema": {
-                              "$ref": "#/components/schemas/FillImageRequest"
-                          }
-                      }
-                  },
-                  "required": true
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/FillImageRequestV3"
+                    }
+                  }
+                },
+                "required": true
               },
               "responses": {
-                  "200": {
-                      "description": "Fill Image Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/FillImageResponse"
-                              }
-                          }
-                      }
-                  },
-                  "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
-                          }
-                      }
-                  },
-                  "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
-                          }
-                      }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
-                  },
-                  "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
-                          }
-                      }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
-                  },
-                  "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
-                          }
-                      }
-                  },
-                  "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
-                          }
-                      }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
-                  },
-                  "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
-                          }
-                      }
-                  },
-                  "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
-                          }
-                      }
-                  },
-                  "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-      },
-      "/v3/images/background-replace": {
-          "post": {
-              "summary": "Replace Background API",
-              "operationId": "replaceBackground",
-              "description": "Replace background of an image with a prompt.",
-              "requestBody": {
-                  "description": "image background replace request body.",
+                "200": {
+                  "description": "Successful Response",
                   "content": {
-                      "application/json": {
-                          "schema": {
-                              "$ref": "#/components/schemas/ReplaceBackgroundRequest"
-                          }
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/FillImageResponseV3"
                       }
-                  },
-                  "required": true
-              },
-              "responses": {
-                  "200": {
-                      "description": "Background Replace Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ReplaceBackgroundResponse"
-                              }
-                          }
-                      }
-                  },
-                  "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
-                          }
-                      }
-                  },
-                  "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
-                          }
-                      }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
-                  },
-                  "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
-                          }
-                      }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
-                  },
-                  "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
-                          }
-                      }
-                  },
-                  "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
-                          }
-                      }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
-                  },
-                  "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
-                          }
-                      }
-                  },
-                  "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
-                          }
-                      }
-                  },
-                  "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
-                          }
-                      }
+                    }
                   }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "bad_request": {
+                          "value": {
+                            "error_code": "bad_request"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Forbidden",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "access_error": {
+                          "value": {
+                            "error_code": "access_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "408": {
+                  "description": "Request Timeout",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "timeout_error": {
+                          "value": {
+                            "error_code": "timeout_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "415": {
+                  "description": "Unsupported Media Type",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "invalid_content_type": {
+                          "value": {
+                            "error_code": "invalid_content_type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "422": {
+                  "description": "Unprocessable Entity",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "validation_error": {
+                          "value": {
+                            "error_code": "validation_error",
+                            "validation_errors": [
+                              {
+                                "loc": [
+                                  "body",
+                                  "contentClass"
+                                ],
+                                "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                "type": "type_error.enum",
+                                "ctx": {
+                                  "enum_values": [
+                                    "photo",
+                                    "art"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "prompt_unsafe": {
+                          "value": {
+                            "error_code": "prompt_unsafe"
+                          }
+                        },
+                        "input_media_unsafe": {
+                          "value": {
+                            "error_code": "input_media_unsafe"
+                          }
+                        },
+                        "output_media_unsafe": {
+                          "value": {
+                            "error_code": "output_media_unsafe"
+                          }
+                        },
+                        "language_not_supported": {
+                          "value": {
+                            "error_code": "language_not_supported"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "runtime_error": {
+                          "value": {
+                            "error_code": "runtime_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "501": {
+                  "description": "Not Implemented",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "not_implemented": {
+                          "value": {
+                            "error_code": "not_implemented"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "503": {
+                  "description": "Service Unavailable",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "model_not_loaded": {
+                          "value": {
+                            "error_code": "model_not_loaded"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
           }
       },
@@ -1230,196 +1040,198 @@
               "operationId": "generateObjectComposite",
               "description": "Upload an image(with or without mask), such as a product photo, and utilize a text prompt to generate a seamlessly composited scene featuring the product.",
               "requestBody": {
-                  "description": "Object composite generation request body.",
-                  "content": {
-                      "application/json": {
-                          "schema": {
-                              "$ref": "#/components/schemas/GenerateObjectCompositeRequest"
-                          }
-                      }
-                  },
-                  "required": true
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+                    }
+                  }
+                },
+                "required": true
               },
               "responses": {
-                  "200": {
-                      "description": "Generate Object Composite Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/GenerateObjectCompositeResponse"
-                              }
-                          }
+                "200": {
+                  "description": "Successful Response",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/GenerateObjectCompositeResponseV3"
                       }
-                  },
-                  "404": {
-                      "description": "Not Found",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "unknown_job_id"
-                              }
-                          }
-                      }
-                  },
-                  "503": {
-                      "description": "Service Unavailable",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "model_not_loaded"
-                              }
-                          }
-                      }
-                  },
-                  "501": {
-                      "description": "Not Implemented",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "not_implemented"
-                              }
-                          }
-                      }
-                  },
-                  "422": {
-                      "description": "Unprocessable Entity",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "language_not_supported"
-                              }
-                          }
-                      }
-                  },
-                  "500": {
-                      "description": "Internal Server Error",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "runtime_error"
-                              }
-                          }
-                      }
-                  },
-                  "499": {
-                      "description": "Additional Response",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "cancelled_error"
-                              }
-                          }
-                      }
-                  },
-                  "408": {
-                      "description": "Request Timeout",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "timeout_error"
-                              }
-                          }
-                      }
-                  },
-                  "451": {
-                      "description": "Unavailable For Legal Reasons",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "reference_image_unsafe_error"
-                              }
-                          }
-                      }
-                  },
-                  "409": {
-                      "description": "Conflict",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_completed"
-                              }
-                          }
-                      }
-                  },
-                  "410": {
-                      "description": "Gone",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "job_timeout"
-                              }
-                          }
-                      }
-                  },
-                  "403": {
-                      "description": "Forbidden",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "access_error"
-                              }
-                          }
-                      }
-                  },
-                  "415": {
-                      "description": "Unsupported Media Type",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "invalid_content_type"
-                              }
-                          }
-                      }
-                  },
-                  "400": {
-                      "description": "Bad Request",
-                      "content": {
-                          "application/json": {
-                              "schema": {
-                                  "$ref": "#/components/schemas/ApiError"
-                              },
-                              "example": {
-                                  "error_code": "empty_input_body"
-                              }
-                          }
-                      }
+                    }
                   }
+                },
+                "400": {
+                  "description": "Bad Request",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "bad_request": {
+                          "value": {
+                            "error_code": "bad_request"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "403": {
+                  "description": "Forbidden",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "access_error": {
+                          "value": {
+                            "error_code": "access_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "408": {
+                  "description": "Request Timeout",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "timeout_error": {
+                          "value": {
+                            "error_code": "timeout_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "415": {
+                  "description": "Unsupported Media Type",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "invalid_content_type": {
+                          "value": {
+                            "error_code": "invalid_content_type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "422": {
+                  "description": "Unprocessable Entity",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "validation_error": {
+                          "value": {
+                            "error_code": "validation_error",
+                            "validation_errors": [
+                              {
+                                "loc": [
+                                  "body",
+                                  "contentClass"
+                                ],
+                                "msg": "value is not a valid enumeration member; permitted: 'photo', 'art'",
+                                "type": "type_error.enum",
+                                "ctx": {
+                                  "enum_values": [
+                                    "photo",
+                                    "art"
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "prompt_unsafe": {
+                          "value": {
+                            "error_code": "prompt_unsafe"
+                          }
+                        },
+                        "input_media_unsafe": {
+                          "value": {
+                            "error_code": "input_media_unsafe"
+                          }
+                        },
+                        "output_media_unsafe": {
+                          "value": {
+                            "error_code": "output_media_unsafe"
+                          }
+                        },
+                        "language_not_supported": {
+                          "value": {
+                            "error_code": "language_not_supported"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "runtime_error": {
+                          "value": {
+                            "error_code": "runtime_error"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "501": {
+                  "description": "Not Implemented",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "not_implemented": {
+                          "value": {
+                            "error_code": "not_implemented"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "503": {
+                  "description": "Service Unavailable",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/ApiError"
+                      },
+                      "examples": {
+                        "model_not_loaded": {
+                          "value": {
+                            "error_code": "model_not_loaded"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
           }
       }
@@ -1437,680 +1249,764 @@
       }
   },
       "schemas": {
-          "ApiError": {
-              "properties": {
-                  "error_code": {
-                      "$ref": "#/components/schemas/ErrorCode"
-                  },
-                  "message": {
-                      "type": "string",
-                      "title": "Message"
-                  },
-                  "validation_errors": {
-                      "items": {
-                          "$ref": "#/components/schemas/ValidationErrorMessage"
-                      },
-                      "type": "array",
-                      "title": "Validation Errors"
-                  },
-                  "stack_trace": {
-                      "items": {
-                          "type": "string"
-                      },
-                      "type": "array",
-                      "title": "Stack Trace"
-                  }
+        "ApiError": {
+            "properties": {
+              "error_code": {
+                "$ref": "#/components/schemas/ColligoErrorCode"
               },
-              "type": "object",
-              "required": ["error_code"],
-              "title": "ApiError",
-              "description": "The error within the error response."
-          },
-          "BaseInputImage": {
-              "properties": {
-                  "source": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinary"
-                          }
-                      ],
-                      "title": "Source image",
-                      "description": "Source image which will be used to expand, fill or generate similar images"
-                  }
+              "message": {
+                "type": "string",
+                "title": "Message"
               },
-              "type": "object",
-              "required": ["source"],
-              "title": "BaseInputImage",
-              "description": "Source image which will be used to expand, fill or generate similar images"
+              "validation_errors": {
+                "items": {
+                  "$ref": "#/components/schemas/ValidationErrorMessage"
+                },
+                "type": "array",
+                "title": "Validation Errors"
+              }
+            },
+            "type": "object",
+            "required": [
+              "error_code"
+            ],
+            "title": "ApiError",
+            "description": "The error within the error response."
           },
-          "ErrorCode": {
-              "type": "string",
-              "enum": [
-                  "model_not_found",
-                  "model_not_loaded",
-                  "not_implemented",
-                  "validation_error",
-                  "runtime_error",
-                  "cancelled_error",
-                  "timeout_error",
-                  "legal_error",
-                  "prompt_unsafe",
-                  "image_unsafe",
-                  "reference_image_unsafe_error",
-                  "language_not_supported",
-                  "file_not_found",
-                  "job_already_canceled",
-                  "job_canceled",
-                  "job_timeout",
-                  "job_completed",
-                  "unknown_job_id",
-                  "access_error",
-                  "invalid_content_type",
-                  "empty_input_body"
-              ],
-              "title": "ErrorCode",
-              "description": "An enumeration."
+          "BaseInputImageV3": {
+            "properties": {
+              "source": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PublicBinary"
+                  }
+                ],
+                "title": "Source image",
+                "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>."
+              }
+            },
+            "type": "object",
+            "required": [
+              "source"
+            ],
+            "title": "BaseInputImageV3"
+          },
+          "Body_expandImagesV3": {
+            "properties": {
+              "request": {
+                "$ref": "#/components/schemas/ExpandImageRequestV3"
+              },
+              "files": {
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "type": "array",
+                "title": "Files"
+              }
+            },
+            "type": "object",
+            "required": [
+              "request",
+              "files"
+            ],
+            "title": "Body_expandImagesV3"
+          },
+          "Body_fillImagesV3": {
+            "properties": {
+              "request": {
+                "$ref": "#/components/schemas/FillImageRequestV3"
+              },
+              "files": {
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "type": "array",
+                "title": "Files"
+              }
+            },
+            "type": "object",
+            "required": [
+              "request",
+              "files"
+            ],
+            "title": "Body_fillImagesV3"
+          },
+          "Body_generateImagesV3": {
+            "properties": {
+              "request": {
+                "$ref": "#/components/schemas/GenerateImagesRequestV3"
+              },
+              "files": {
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "type": "array",
+                "title": "Files"
+              }
+            },
+            "type": "object",
+            "required": [
+              "request",
+              "files"
+            ],
+            "title": "Body_generateImagesV3"
+          },
+          "Body_generateObjectCompositeV3": {
+            "properties": {
+              "request": {
+                "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+              },
+              "files": {
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "type": "array",
+                "title": "Files"
+              }
+            },
+            "type": "object",
+            "required": [
+              "request",
+              "files"
+            ],
+            "title": "Body_generateObjectCompositeV3"
+          },
+          "Body_generateSimilarImagesV3": {
+            "properties": {
+              "request": {
+                "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+              },
+              "files": {
+                "items": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "type": "array",
+                "title": "Files"
+              }
+            },
+            "type": "object",
+            "required": [
+              "request",
+              "files"
+            ],
+            "title": "Body_generateSimilarImagesV3"
+          },
+          "ColligoErrorCode": {
+            "type": "string",
+            "enum": [
+              "model_not_loaded",
+              "not_implemented",
+              "validation_error",
+              "runtime_error",
+              "timeout_error",
+              "prompt_unsafe",
+              "input_media_unsafe",
+              "output_media_unsafe",
+              "bad_request",
+              "language_not_supported",
+              "access_error",
+              "invalid_content_type"
+            ],
+            "title": "ColligoErrorCode",
+            "description": "An enumeration."
           },
           "ContentClass": {
-              "type": "string",
-              "enum": ["photo", "art", "vector"],
-              "title": "ContentClass",
-              "description": "The content class guides the overall image theme and styles can be applied on top of each content type. If no content type is specified, it is auto-detected. \n | Value | Description\n |:---------- |:------\n | photo | Photorealistic style\n | art | Artistic style\n | vector | Vector style\n"
+            "type": "string",
+            "enum": [
+              "photo",
+              "art",
+              "vector"
+            ],
+            "title": "ContentClass",
+            "description": "An enumeration."
           },
-          "ContentInsertion": {
-              "properties": {
-                  "source": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinary"
-                          }
-                      ],
-                      "title": "Source image",
-                      "description": "Source image from which content needs to be inserted"
-                  },
-                  "strength": {
-                      "type": "integer",
-                      "maximum": 100,
-                      "minimum": 1,
-                      "title": "strength",
-                      "description": "Strength in range 0 to 100. Higher value preverses original content better."
+          "ContentInsertionV3": {
+            "properties": {
+              "source": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PublicBinary"
                   }
-              },
-              "type": "object",
-              "required": ["source"],
-              "title": "ContentInsertion"
+                ],
+                "title": "Source image",
+                "description": "Source image from which content needs to be inserted.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+            },
+              "strength": {
+                "type": "integer",
+                "maximum": 100,
+                "minimum": 1,
+                "title": "strength",
+                "description": "Strength in range 0 to 100. Higher value preverses original content better."
+              }
+            },
+            "type": "object",
+            "required": [
+              "source"
+            ],
+            "title": "ContentInsertionV3"
           },
-          "ExpandImageRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations.",
-                      "description": "Identifier used to customize image generation processes. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with numVariations, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "prompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "minLength": 1,
-                      "title": "Prompt"
-                  },
-                  "image": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/InputImage"
-                          }
-                      ],
-                      "title": "Input Image",
-                      "description": "Image which we want to expand"
-                  },
-                  "styleReference": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Styles"
-                          }
-                      ],
-                      "title": "The styles to be used for image generation",
-                      "description": "You can pass the image in source field which will be used for style reference"
-                  },
-                  "contentInsertion": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ContentInsertion"
-                          }
-                      ],
-                      "title": "Content Insertion",
-                      "description": "The image to insert the content from"
-                  }
+          "ExpandImageRequestV3": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
-              "type": "object",
-              "required": ["prompt", "image"],
-              "description": "Images expand payload"
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "title": "The seed of each variation",
+                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The size",
+                "description": "The size of the requested generations",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "title": "Prompt"
+              },
+              "image": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InputImage"
+                  }
+                ],
+                "title": "Input Image",
+                "description": "Image which we want to expand"
+              },
+              "contentInsertion": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentInsertionV3"
+                  }
+                ],
+                "title": "Content Insertion",
+                "description": "The image to insert the content from"
+              }
+            },
+            "type": "object",
+            "required": [
+              "prompt",
+              "image"
+            ],
+            "title": "Images expand payload"
           },
-          "ExpandImageResponse": {
-              "properties": {
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
-                  },
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
+          "ExpandImageResponseV3": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
                   }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
               },
-              "type": "object",
-              "required": ["size", "outputs"],
-              "title": "Images expand response",
-              "description": "Expand Image response"
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Images expand response"
           },
-          "FillImageRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with numVariations, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "prompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "minLength": 1,
-                      "title": "The prompt",
-                      "description": "The prompt used to generate the image. The longer the prompt - the better"
-                  },
-                  "negativePrompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "title": "Avoid prompt",
-                      "description": "Inference will try to generate against this prompt"
-                  },
-                  "image": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/InputImage"
-                          }
-                      ],
-                      "title": "Input Image",
-                      "description": "Input image which we want to fill"
-                  },
-                  "styleReference": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Styles"
-                          }
-                      ],
-                      "title": "The styles to be used for image generation",
-                      "description": "You can pass the image in source field which will be used for style reference"
-                  },
-                  "contentInsertion": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ContentInsertion"
-                          }
-                      ],
-                      "title": "Content Insertion",
-                      "description": "The image to insert the content from"
-                  },
-                  "promptBiasingLocaleCode": {
-                      "type": "string",
-                      "title": "The locale used for image generations.",
-                      "description": "A hyphen separated string, combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be debiased to generated more relevant content to that region. If not specified, the locale will be auto detected, based on user's profile and Accept-Language header.",
-                      "default": "en-US"
-                  }
+          "FillImageRequestV3": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
-              "type": "object",
-              "required": ["prompt", "image"],
-              "description": "Fill images payload"
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "title": "The seed of each variation",
+                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The size",
+                "description": "The size of the requested generations",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "title": "The prompt",
+                "description": "The prompt used to generate the image. The longer the prompt - the better"
+              },
+              "negativePrompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "title": "Avoid prompt",
+                "description": "Inference will try to generate against this prompt"
+              },
+              "image": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InputImage"
+                  }
+                ],
+                "title": "Input Image",
+                "description": "Input image to fill with generative content."
+              },
+              "contentInsertion": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentInsertionV3"
+                  }
+                ],
+                "title": "Content Insertion",
+                "description": "The image to insert the content from"
+              },
+              "promptBiasingLocaleCode": {
+                "type": "string",
+                "title": "The locale used for image generations",
+                "description": "The locale will be used to generate content that is more relevant for user's country and language"
+              }
+            },
+            "type": "object",
+            "required": [
+              "prompt",
+              "image"
+            ],
+            "title": "Fill images payload"
           },
-          "FillImageResponse": {
-              "properties": {
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
-                  },
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
+          "FillImageResponseV3": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
                   }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
               },
-              "type": "object",
-              "required": ["size", "outputs"],
-              "description": "Fill images response"
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Fill images response."
           },
-          "GenerateImagesRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "prompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "minLength": 1,
-                      "title": "The prompt",
-                      "description": "The prompt used to generate the image. The longer the prompt - the better"
-                  },
-                  "negativePrompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "title": "Avoid prompt",
-                      "description": "Inference will try to generate against this prompt"
-                  },
-                  "contentClass": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ContentClass"
-                          }
-                      ],
-                      "title": "The content class",
-                      "description": "Will guide the generation to being more photographic or more like art"
-                  },
-                  "visualIntensity": {
-                      "type": "integer",
-                      "maximum": 10,
-                      "minimum": 2,
-                      "title": "Visual Intensity",
-                      "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
-                      "default": 6
-                  },
-                  "photoSettings": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PhotoSettings"
-                          }
-                      ],
-                      "title": "The photo settings",
-                      "description": "This is only valid if contentClass is photo, otherwise it will be ignored"
-                  },
-                  "styleReference": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Styles"
-                          }
-                      ],
-                      "title": "The styles to be used for image generation",
-                      "description": "You can specify a preset, a reference image or both"
-                  },
-                  "promptBiasingLocaleCode": {
-                      "type": "string",
-                      "title": "The locale used for image generations",
-                      "description": "The locale will be used to generate content that is more relevant for user's country and language"
-                  },
-                  "tileable": {
-                      "type": "boolean",
-                      "title": "If the output image should be tileable or not",
-                      "description": "Control to apply noise-rolling during diffusion (required for text2pattern, text2texture)"
-                  },
-                  "structureReference": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/StructureReference"
-                          }
-                      ],
-                      "title": "Structure Reference",
-                      "description": "Source Image which will be used for as a reference for structure to have a controlled generation"
-                  }
+          "GenerateImagesRequestV3": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
-              "type": "object",
-              "required": ["prompt"],
-              "description": "Generating images from prompt"
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "title": "The seed of each variation",
+                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The size",
+                "description": "The size of the requested generations",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "title": "The prompt",
+                "description": "The prompt used to generate the image. The longer the prompt - the better"
+              },
+              "negativePrompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "title": "Avoid prompt",
+                "description": "Inference will try to generate against this prompt"
+              },
+              "contentClass": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentClass"
+                  }
+                ],
+                "title": "The content class",
+                "description": "Will guide the generation to being more photographic or more like art"
+              },
+              "visualIntensity": {
+                "type": "integer",
+                "maximum": 10,
+                "minimum": 2,
+                "title": "Visual Intensity",
+                "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
+                "default": 6
+              },
+              "photoSettings": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PhotoSettings"
+                  }
+                ],
+                "title": "The photo settings",
+                "description": "This is only valid if contentClass is photo, otherwise it will be ignored"
+              },
+              "styleReference": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/StylesV3"
+                  }
+                ],
+                "title": "The styles to be used for image generation",
+                "description": "You can specify a preset, a reference image or both"
+              },
+              "promptBiasingLocaleCode": {
+                "type": "string",
+                "title": "The locale used for image generations",
+                "description": "The locale will be used to generate content that is more relevant for user's country and language"
+              },
+              "tileable": {
+                "type": "boolean",
+                "title": "If the output image should be tileable or not",
+                "description": "Control to apply noise-rolling during diffusion (required for text2pattern, text2texture)"
+              },
+              "structureReference": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/StructureReferenceV3"
+                  }
+                ],
+                "title": "Structure Reference",
+                "description": "Source Image which will be used for as a reference for structure to have a controlled generation"
+              }
+            },
+            "type": "object",
+            "required": [
+              "prompt"
+            ],
+            "title": "Generating images from prompt"
           },
-          "GenerateImagesResponse": {
-              "properties": {
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
-                  },
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
-                  },
-                  "promptHasDeniedWords": {
-                      "type": "boolean",
-                      "title": "The prompt had denied words",
-                      "description": "The user may see that the generation does not comply to its full prompt"
-                  },
-                  "promptHasBlockedArtists": {
-                      "type": "boolean",
-                      "title": "The prompt had artists that were blocked",
-                      "description": "The user may see that the generation does not comply to its full prompt"
-                  },
-                  "photoSettings": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PhotoSettings"
-                          }
-                      ],
-                      "title": "The photo settings used for generation",
-                      "description": "Only specified if content class was detected as photo"
-                  },
-                  "contentClass": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ContentClass"
-                          }
-                      ],
-                      "title": "The detected content class",
-                      "description": "Will be same as input, if input was specified"
+          "GenerateImagesResponseV3": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
                   }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
               },
-              "type": "object",
-              "required": ["size", "outputs"],
-              "title": "Generating images from prompt",
-              "description": "text-to-image response"
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              },
+              "promptHasDeniedWords": {
+                "type": "boolean",
+                "title": "The prompt had denied words",
+                "description": "The user may see that the generation does not comply to its full prompt"
+              },
+              "promptHasBlockedArtists": {
+                "type": "boolean",
+                "title": "The prompt had artists that were blocked",
+                "description": "The user may see that the generation does not comply to its full prompt"
+              },
+              "photoSettings": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PhotoSettings"
+                  }
+                ],
+                "title": "The photo settings used for generation",
+                "description": "Only specified if content class was detected as photo"
+              },
+              "contentClass": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentClass"
+                  }
+                ],
+                "title": "The detected content class",
+                "description": "Will be same as input, if input was specified"
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Generating images from prompt"
           },
-          "GenerateObjectCompositeRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "image": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ObjectCompositeInputImage"
-                          }
-                      ],
-                      "title": "Input Image",
-                      "description": "Input Image"
-                  },
-                  "prompt": {
-                      "type": "string",
-                      "title": "The prompt",
-                      "description": "The prompt used to generate the background. The longer the prompt - the better"
-                  },
-                  "placement": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Placement"
-                          }
-                      ],
-                      "title": "Object placement",
-                      "description": "Determines placement of object in output image"
-                  }
+          "GenerateObjectCompositeRequestV3": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
-              "type": "object",
-              "required": ["image", "prompt"],
-              "title": "GenerateObjectCompositeRequest",
-              "description": "Generating object composite from prompt"
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "title": "The seed of each variation",
+                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The size",
+                "description": "The size of the requested generations",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
+              },
+              "image": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ObjectCompositeInputImageV3"
+                  }
+                ],
+                "title": "Input Image",
+                "description": "Input Image to create object composite"
+              },
+              "prompt": {
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "title": "The prompt",
+                "description": "The prompt used to generate the image. The longer the prompt - the better"
+              },
+              "placement": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Placement"
+                  }
+                ],
+                "title": "Object placement",
+                "description": "Determines placement of object in output image"
+              }
+            },
+            "type": "object",
+            "required": [
+              "image",
+              "prompt"
+            ],
+            "title": "Generate object composite from prompt request"
           },
-          "GenerateObjectCompositeResponse": {
-              "properties": {
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
+          "GenerateObjectCompositeResponseV3": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
                   }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
               },
-              "type": "object",
-              "required": ["outputs", "size"],
-              "title": "GenerateObjectCompositeResponse",
-              "description": "Generating object composite from prompt"
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Generate object composite from prompt response"
           },
-          "GenerateSimilarImagesRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "image": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/BaseInputImage"
-                          }
-                      ],
-                      "title": "The reference image",
-                      "description": "Firefly will create similar variations"
-                  },
-                  "tileable": {
-                      "type": "boolean",
-                      "title": "Output image tileability",
-                      "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
-                  }
+          "GenerateSimilarImagesRequestV3": {
+            "properties": {
+              "numVariations": {
+                "type": "integer",
+                "maximum": 4,
+                "minimum": 1,
+                "title": "The number of variations",
+                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
-              "type": "object",
-              "required": ["image"],
-              "title": "GenerateSimilarImagesRequest",
-              "description": "Generating similar images from a reference image"
+              "seeds": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array",
+                "maxItems": 4,
+                "minItems": 1,
+                "uniqueItems": true,
+                "title": "The seed of each variation",
+                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+              },
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
+                  }
+                ],
+                "title": "The size",
+                "description": "The size of the requested generations",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
+              },
+              "image": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BaseInputImageV3"
+                  }
+                ],
+                "title": "The reference image",
+                "description": "Firefly will create similar variations"
+              },
+              "tileable": {
+                "type": "boolean",
+                "title": "Output image tileability",
+                "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
+              }
+            },
+            "type": "object",
+            "required": [
+              "image"
+            ],
+            "title": "Generating similar images from a reference image"
           },
-          "GenerateSimilarImagesResponse": {
-              "properties": {
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
-                  },
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
+          "GenerateSimilarImagesResponseV3": {
+            "properties": {
+              "size": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Size"
                   }
+                ],
+                "title": "The actual size used for the outputs",
+                "description": "If size was passed as input, this value should be the same as the one passed as input."
               },
-              "type": "object",
-              "required": ["size", "outputs"],
-              "title": "GenerateSimilarImagesResponse",
-              "description": "Generating similar images response"
+              "outputs": {
+                "items": {
+                  "$ref": "#/components/schemas/OutputImage"
+                },
+                "type": "array",
+                "minItems": 1,
+                "title": "The list of images",
+                "description": "Each image will have a storage item."
+              }
+            },
+            "type": "object",
+            "required": [
+              "size",
+              "outputs"
+            ],
+            "title": "Generating similar images response"
           },
-          "ImageEncodingParameters": {
-              "properties": {
-                  "jxlImageEncodingParameters": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/JxlImageEncodingParameters"
-                          }
-                      ],
-                      "title": "JXL image encoding parameters",
-                      "description": "Set of parameters for fine-tuning output images in JXL format"
+          "ObjectCompositeInputImageV3": {
+            "properties": {
+              "source": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PublicBinary"
                   }
+                ],
+                "title": "Source image",
+                "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
-              "type": "object",
-              "title": "ImageEncodingParameters"
-          },
-          "ObjectCompositeInputImage": {
-              "properties": {
-                  "source": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinary"
-                          }
-                      ],
-                      "title": "Source Image",
-                      "description": "Source Image.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                  },
-                  "mask": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinary"
-                          }
-                      ],
-                      "title": "Background Mask",
-                      "description": "Background mask.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
-                  }
-              },
-              "type": "object",
-              "required": ["source"],
-              "title": "InputImageObjectComposite"
+              "mask": {
+                "$ref": "#/components/schemas/PublicBinary"
+              }
+            },
+            "type": "object",
+            "required": [
+              "source"
+            ],
+            "title": "ObjectCompositeInputImageV3"
           },
           "InputImage": {
               "properties": {
@@ -2130,7 +2026,7 @@
                           }
                       ],
                       "title": "Mask image",
-                      "description": "Mask image which will be used replace the backgound of the image"
+                      "description": "Mask image which will be used replace the backgound of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
                   }
               },
               "type": "object",
@@ -2170,7 +2066,7 @@
                               "$ref": "#/components/schemas/PublicBinary"
                           }
                       ],
-                      "description": "A valid Storage Item containing both an internal ID and a pre-signed URL. The pre-signed URL will expire in one hour."
+                      "description": "A valid storage item containing both an internal ID and a pre-signed URL. The pre-signed URL will expire in one hour."
                   }
               },
               "type": "object",
@@ -2252,7 +2148,7 @@
                   "uploadId": {
                       "type": "string",
                       "format": "uuid4",
-                      "title": "The internal id for a storage item.",
+                      "title": "The internal id",
                       "description": "This is coming from other outputs. Generate this ID using the upload API."
                   },
                   "url": {
@@ -2266,94 +2162,6 @@
               },
               "type": "object",
               "title": "PublicBinary"
-          },
-          "ReplaceBackgroundRequest": {
-              "properties": {
-                  "numVariations": {
-                      "type": "integer",
-                      "maximum": 4,
-                      "minimum": 1,
-                      "title": "The number of variations",
-                      "description": "Identifier used to customize image generation processes. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
-                  },
-                  "seeds": {
-                      "items": {
-                          "type": "integer"
-                      },
-                      "type": "array",
-                      "maxItems": 4,
-                      "minItems": 1,
-                      "uniqueItems": true,
-                      "title": "The seed of each variation",
-                      "description": "Identifier used to customize image generation processes. If specified alongside with n, the number of seeds must be the equal to n"
-                  },
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The size",
-                      "description": "The size of the requested generations",
-                      "default": {
-                          "width": 2048,
-                          "height": 2048
-                      }
-                  },
-                  "prompt": {
-                      "type": "string",
-                      "maxLength": 1024,
-                      "minLength": 1,
-                      "title": "The prompt",
-                      "description": "The prompt used to generate the image. The longer the prompt - the better"
-                  },
-                  "image": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/InputImage"
-                          }
-                      ],
-                      "title": "Source image and mask image.",
-                      "description": "Source image from which background needs to be replaced with a optional mask."
-                  },
-                  "contentInsertion": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/ContentInsertion"
-                          }
-                      ],
-                      "title": "Content Insertion",
-                      "description": "The image to insert the content from"
-                  }
-              },
-              "type": "object",
-              "required": ["prompt", "image"],
-              "title": "Background replace payload"
-          },
-          "ReplaceBackgroundResponse": {
-              "properties": {
-                  "size": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/Size"
-                          }
-                      ],
-                      "title": "The actual size used for the outputs",
-                      "description": "If size was passed as input, this value should be the same as the one passed as input."
-                  },
-                  "outputs": {
-                      "items": {
-                          "$ref": "#/components/schemas/OutputImage"
-                      },
-                      "type": "array",
-                      "minItems": 1,
-                      "title": "The list of images",
-                      "description": "Each image will have a storage item."
-                  }
-              },
-              "type": "object",
-              "required": ["size", "outputs"],
-              "title": "Backgound replace response"
           },
           "Size": {
               "properties": {
@@ -2375,7 +2183,7 @@
               "required": ["width", "height"],
               "title": "Size"
           },
-          "StructureReference": {
+          "StructureReferenceV3": {
               "properties": {
                   "source": {
                       "allOf": [
@@ -2384,7 +2192,7 @@
                           }
                       ],
                       "title": "A structure reference image",
-                      "description": "Firefly will detect the structure in the image and apply the same in the generated image"
+                      "description": "Firefly will detect the structure in the image and apply the same in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                   "strength": {
                       "type": "integer",
@@ -2398,7 +2206,7 @@
               "type": "object",
               "title": "StructureReference"
           },
-          "Styles": {
+          "StylesV3": {
               "properties": {
                   "presets": {
                       "items": {
@@ -2416,7 +2224,7 @@
                           }
                       ],
                       "title": "A style image reference",
-                      "description": "Firefly will detect the style in the image and apply the same style in the generated image"
+                      "description": "Firefly will detect the style in the image and apply the same style in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                   "strength": {
                       "type": "integer",
@@ -2460,37 +2268,41 @@
               }
           },
           "ValidationErrorMessage": {
-              "properties": {
-                  "loc": {
-                      "items": {
-                          "anyOf": [
-                              {
-                                  "type": "integer"
-                              },
-                              {
-                                  "type": "string"
-                              }
-                          ]
-                      },
-                      "type": "array",
-                      "title": "Loc"
-                  },
-                  "msg": {
-                      "type": "string",
-                      "title": "Msg"
-                  },
-                  "type": {
-                      "type": "string",
-                      "title": "Type"
-                  },
-                  "ctx": {
-                      "type": "object",
-                      "title": "Ctx"
-                  }
+            "properties": {
+              "loc": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "type": "array",
+                "title": "Loc"
               },
-              "type": "object",
-              "required": ["loc", "msg", "type"],
-              "title": "ValidationErrorMessage"
+              "msg": {
+                "type": "string",
+                "title": "Msg"
+              },
+              "type": {
+                "type": "string",
+                "title": "Type"
+              },
+              "ctx": {
+                "type": "object",
+                "title": "Ctx"
+              }
+            },
+            "type": "object",
+            "required": [
+              "loc",
+              "msg",
+              "type"
+            ],
+            "title": "ValidationErrorMessage"
           }
       }
   }
