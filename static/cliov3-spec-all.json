@@ -1251,21 +1251,15 @@
       "schemas": {
         "ApiError": {
             "properties": {
-              "error_code": {
-                "$ref": "#/components/schemas/ColligoErrorCode"
-              },
-              "message": {
-                "type": "string",
-                "title": "Message"
-              },
-              "validation_errors": {
-                "items": {
-                  "$ref": "#/components/schemas/ValidationErrorMessage"
-                },
-                "type": "array",
-                "title": "Validation Errors"
-              }
-            },
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    },
+                    "error_code": {
+                      "type": "string",
+                      "description": "Associated error code"
+                    }
+                  },
             "type": "object",
             "required": [
               "error_code"
