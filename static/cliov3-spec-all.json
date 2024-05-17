@@ -1451,7 +1451,7 @@
                 "maximum": 4,
                 "minimum": 1,
                 "title": "The number of variations",
-                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
               "seeds": {
                 "items": {
@@ -1462,7 +1462,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
               "size": {
                 "allOf": [
@@ -1544,7 +1544,7 @@
                 "maximum": 4,
                 "minimum": 1,
                 "title": "The number of variations",
-                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
               "seeds": {
                 "items": {
@@ -1555,7 +1555,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
               "size": {
                 "allOf": [
@@ -1650,7 +1650,7 @@
                 "maximum": 4,
                 "minimum": 1,
                 "title": "The number of variations",
-                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
               "seeds": {
                 "items": {
@@ -1661,7 +1661,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations."
               },
               "size": {
                 "allOf": [
@@ -1813,7 +1813,7 @@
                 "maximum": 4,
                 "minimum": 1,
                 "title": "The number of variations",
-                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
               "seeds": {
                 "items": {
@@ -1824,7 +1824,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
               "size": {
                 "allOf": [
@@ -1907,7 +1907,7 @@
                 "maximum": 4,
                 "minimum": 1,
                 "title": "The number of variations",
-                "description": "numVariations will default to the number of seeds, or to 1 if seeds is not specified."
+                "description": "The number of variations to generate. numVariations will default to the number of seeds, or to 1 if seeds is not specified."
               },
               "seeds": {
                 "items": {
@@ -1918,7 +1918,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "description": "If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
+                "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
               "size": {
                 "allOf": [
