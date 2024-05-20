@@ -1419,31 +1419,6 @@
             "title": "ContentClass",
             "description": "An enumeration."
           },
-          "ContentInsertionV3": {
-            "properties": {
-              "source": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PublicBinary"
-                  }
-                ],
-                "title": "Source image",
-                "description": "Source image from which content needs to be inserted.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-            },
-              "strength": {
-                "type": "integer",
-                "maximum": 100,
-                "minimum": 1,
-                "title": "strength",
-                "description": "Strength in range 0 to 100. Higher value preverses original content better."
-              }
-            },
-            "type": "object",
-            "required": [
-              "source"
-            ],
-            "title": "ContentInsertionV3"
-          },
           "ExpandImageRequestV3": {
             "properties": {
               "numVariations": {
@@ -1491,20 +1466,10 @@
                 ],
                 "title": "Input Image",
                 "description": "Image which we want to expand"
-              },
-              "contentInsertion": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ContentInsertionV3"
-                  }
-                ],
-                "title": "Content Insertion",
-                "description": "The image to insert the content from"
               }
             },
             "type": "object",
             "required": [
-              "prompt",
               "image"
             ],
             "title": "Images expand payload"
@@ -1592,25 +1557,15 @@
                 "title": "Input Image",
                 "description": "Input image to fill with generative content."
               },
-              "contentInsertion": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/ContentInsertionV3"
-                  }
-                ],
-                "title": "Content Insertion",
-                "description": "The image to insert the content from"
-              },
               "promptBiasingLocaleCode": {
                 "type": "string",
                 "title": "The locale used for image generations",
-                "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header."
+                "description": "A hyphen-separated string combining the ISO 639-1 language code and the ISO 3166-1 region, such as \"en-US\". When a locale is set, the prompt will be biased to generate more relevant content for that region. The locale will be auto-detected if not specified based on the user's profile and Accept-Language header.",
                 "default": "en-US"
               }
             },
             "type": "object",
             "required": [
-              "prompt",
               "image"
             ],
             "title": "Fill images payload"
@@ -2069,6 +2024,7 @@
               "title": "OutputImage"
           },
           "PhotoSettings": {
+            "description": "Photo settings used for generation",
               "properties": {
                   "aperture": {
                       "type": "number",
@@ -2113,6 +2069,7 @@
               "title": "Placement"
           },
           "PlacementInset": {
+            "description": "Margin values in target size",
               "properties": {
                   "left": {
                       "type": "integer",
