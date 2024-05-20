@@ -1272,7 +1272,7 @@
               "source": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/PublicBinary"
+                    "$ref": "#/components/schemas/PublicBinaryInput"
                   }
                 ],
                 "title": "Source image",
@@ -1461,7 +1461,7 @@
               "image": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/InputImage"
+                    "$ref": "#/components/schemas/ExpandInputImage"
                   }
                 ],
                 "title": "Input Image",
@@ -1502,6 +1502,31 @@
             ],
             "title": "Images expand response"
           },
+          "ExpandInputImage": {
+            "properties": {
+                "source": {
+                    "allOf": [
+                        {
+                            "$ref": "#/components/schemas/PublicBinaryInput"
+                        }
+                    ],
+                    "title": "Source image",
+                    "description": "Source image which will be used to expand, fill or generate similar images, dimensions of image should not be greater than (4000px X 4000px)"
+                },
+                "mask": {
+                    "allOf": [
+                        {
+                            "$ref": "#/components/schemas/PublicBinaryInput"
+                        }
+                    ],
+                    "title": "Mask image",
+                    "description": "Mask image which will be used replace the background of the image"
+                }
+            },
+            "type": "object",
+            "required": ["source"],
+            "title": "ExpandInputImage"
+        },
           "FillImageRequestV3": {
             "properties": {
               "numVariations": {
@@ -1942,14 +1967,14 @@
               "source": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/PublicBinary"
+                    "$ref": "#/components/schemas/PublicBinaryInput"
                   }
                 ],
                 "title": "Source image",
                 "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "mask": {
-                "$ref": "#/components/schemas/PublicBinary"
+                "$ref": "#/components/schemas/PublicBinaryInput"
               }
             },
             "type": "object",
@@ -1963,7 +1988,7 @@
                   "source": {
                       "allOf": [
                           {
-                              "$ref": "#/components/schemas/PublicBinary"
+                              "$ref": "#/components/schemas/PublicBinaryInput"
                           }
                       ],
                       "title": "Source image",
@@ -1972,7 +1997,7 @@
                   "mask": {
                       "allOf": [
                           {
-                              "$ref": "#/components/schemas/PublicBinary"
+                              "$ref": "#/components/schemas/PublicBinaryInput"
                           }
                       ],
                       "title": "Mask image",
@@ -1983,26 +2008,40 @@
               "required": ["source"],
               "title": "InputImage"
           },
-          "JxlImageEncodingParameters": {
-              "properties": {
-                  "quality": {
-                      "type": "integer",
-                      "maximum": 100,
-                      "minimum": 0,
-                      "title": "Quality of image encoding",
-                      "description": "The quality of the image, as in JPEG or other formats, worsens as it becomes smaller, with 100 being lossless."
-                  },
-                  "effort": {
-                      "type": "integer",
-                      "maximum": 9,
-                      "minimum": 3,
-                      "title": "Effort of image encoding",
-                      "description": "Higher effort improves compression ratios and image quality but increases processing time, while lower effort speeds up encoding but may sacrifice quality or file size."
-                  }
-              },
-              "type": "object",
-              "title": "JxlImageEncodingParameters"
+          "PublicBinaryInput": {
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "maxLength": 2083,
+                    "minLength": 1,
+                    "format": "uri",
+                    "title": "The presigned url",
+                    "description": "This URL of an uploaded image"
+                },
+                "uploadId": {
+                    "type": "string",
+                    "format": "uuid4",
+                    "title": "UUID of the uploaded object",
+                    "description": "UUID of the uploaded object"
+                }
+            },
+            "type": "object",
+            "title": "PublicBinaryInput"
+        },
+        "PublicBinaryOutput": {
+          "properties": {
+              "url": {
+                  "type": "string",
+                  "maxLength": 2083,
+                  "minLength": 1,
+                  "format": "uri",
+                  "title": "The presigned url",
+                  "description": "The reference to signed url of the image."
+              }
           },
+          "type": "object",
+          "title": "PublicBinaryOutput"
+      },
           "OutputImage": {
               "properties": {
                   "seed": {
@@ -2013,10 +2052,10 @@
                   "image": {
                       "allOf": [
                           {
-                              "$ref": "#/components/schemas/PublicBinary"
+                              "$ref": "#/components/schemas/PublicBinaryOutput"
                           }
                       ],
-                      "description": "A valid storage item containing both an internal ID and a pre-signed URL. The pre-signed URL will expire in one hour."
+                      "description": "A valid storage item containing a pre-signed URL. The pre-signed URL will expire in one hour."
                   }
               },
               "type": "object",
@@ -2140,7 +2179,7 @@
                   "source": {
                       "allOf": [
                           {
-                              "$ref": "#/components/schemas/PublicBinary"
+                              "$ref": "#/components/schemas/PublicBinaryInput"
                           }
                       ],
                       "title": "A structure reference image",
@@ -2172,7 +2211,7 @@
                   "source": {
                       "allOf": [
                           {
-                              "$ref": "#/components/schemas/PublicBinary"
+                              "$ref": "#/components/schemas/PublicBinaryInput"
                           }
                       ],
                       "title": "A style image reference",
