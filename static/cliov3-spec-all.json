@@ -1538,7 +1538,7 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "The original image to be expanded. Dimensions of image should not be greater than (4000px X 4000px). \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                    "description": "The image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
                   },
                 "mask": {
                     "allOf": [
@@ -1547,12 +1547,13 @@
                         }
                     ],
                     "title": "Mask image",
-                    "description": "The mask must be larger than the original image, and its size must match the size of the mask, or the size will be inferred from the mask"
+                    "description": "Mask that has to be larger than the source image, and the target size has to match the size of the mask or it will be inferred from the mask."
                 }
             },
             "type": "object",
             "required": ["source"],
-            "title": "ExpandInputImage"
+            "title": "ExpandInputImage",
+            "description": "\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
         },
           "FillImageRequestV3": {
             "properties": {
