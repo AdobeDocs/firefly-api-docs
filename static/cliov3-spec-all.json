@@ -1466,6 +1466,9 @@
                 ],
                 "title": "Input Image",
                 "description": "Image which we want to expand"
+              },
+              "placement": {
+                "$ref": "#/components/schemas/Placement"
               }
             },
             "type": "object",
