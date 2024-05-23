@@ -1863,7 +1863,7 @@
                   }
                 ],
                 "title": "Object placement",
-                "description": "Determines placement of object in output image"
+                "description": "Determines placement of object in output image."
               }
             },
             "type": "object",
@@ -2048,7 +2048,7 @@
             },
             "type": "object",
             "title": "PublicBinaryInput"
-        },
+          },
         "PublicBinaryOutput": {
           "properties": {
               "url": {
@@ -2084,45 +2084,47 @@
               "title": "OutputImage"
           },
           "PhotoSettings": {
-            "description": "Photo settings used for generation",
-              "properties": {
-                  "aperture": {
-                      "type": "number",
-                      "maximum": 22,
-                      "minimum": 1.2,
-                      "title": "The styles to be used for image generation",
-                      "description": "You can specify a preset, a reference image or both"
-                  },
-                  "shutterSpeed": {
-                      "type": "number",
-                      "maximum": 10,
-                      "minimum": 0.0005,
-                      "title": "Shutter speed, seconds",
-                      "description": "You can use fractions of a second like 1/4000 or whole seconds"
-                  },
-                  "fieldOfView": {
-                      "type": "integer",
-                      "maximum": 300,
-                      "minimum": 14,
-                      "title": "The field of view, in mm",
-                      "description": "Description TBD"
-                  }
+            "properties": {
+              "aperture": {
+                "type": "number",
+                "maximum": 22,
+                "minimum": 1.2,
+                "title": "The styles to be used for image generation",
+                "description": "You can specify a preset, a reference image or both"
               },
-              "type": "object",
-              "required": ["aperture", "shutterSpeed", "fieldOfView"],
-              "title": "PhotoSettings"
+              "shutterSpeed": {
+                "type": "number",
+                "maximum": 10,
+                "minimum": 0.0005,
+                "title": "Shutter speed, seconds",
+                "description": "You can use fractions of a second like 1/4000 or whole seconds"
+              },
+              "fieldOfView": {
+                "type": "integer",
+                "maximum": 300,
+                "minimum": 14,
+                "title": "The field of view, in mm",
+                "description": "Description TBD"
+              }
+            },
+            "type": "object",
+            "required": [
+              "aperture",
+              "shutterSpeed",
+              "fieldOfView"
+            ],
+            "title": "PhotoSettings"
           },
           "Placement": {
-              "properties": {
-                  "inset": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PlacementInset"
-                          }
-                      ],
-                      "title": "Margin values in target size",
-                      "description": "Margin values in target size."
+            "properties": {
+              "inset": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlacementInset"
                   }
+                ],
+                "title": "Margin values in target size",
+                "description": "Margin values in target size"
               },
               "alignment": {
                 "allOf": [
@@ -2134,8 +2136,8 @@
                 "description": "Specify horizontal and vertical alignment. For horizontal, (0,1,2)=(center, left, right). For vertical, (0,1,2)=(center, top, bottom)."
               }
             },
-              "type": "object",
-              "title": "Placement"
+            "type": "object",
+            "title": "Placement"
           },
           "PlacementAlignment": {
             "properties": {
@@ -2160,51 +2162,30 @@
             "title": "PlacementAlignment"
           },
           "PlacementInset": {
-            "description": "Margin values in target size",
-              "properties": {
-                  "left": {
-                      "type": "integer",
-                      "title": "Left Inset",
-                      "description": "The space between left edge of the result image and left edge of the placed object image."
-                  },
-                  "top": {
-                      "type": "integer",
-                      "title": "Top Inset",
-                      "description": "The space between top edge of the result image and top edge of the placed object image."
-                  },
-                  "right": {
-                      "type": "integer",
-                      "title": "Right Inset",
-                      "description": "The space between right edge of the result image and right edge of the placed object image."
-                  },
-                  "bottom": {
-                      "type": "integer",
-                      "title": "Bottom Inset",
-                      "description": "The space between bottom edge of the result image and bottom edge of the placed object image."
-                  }
+            "properties": {
+              "left": {
+                "type": "integer",
+                "title": "Left Inset",
+                "description": "The space between left edge of the result image and left edge of the placed object image."
               },
-              "type": "object",
-              "title": "PlacementInset"
-          },
-          "PublicBinary": {
-              "properties": {
-                  "uploadId": {
-                      "type": "string",
-                      "format": "uuid4",
-                      "title": "The internal id",
-                      "description": "This is coming from other outputs. Generate this ID using the upload API."
-                  },
-                  "url": {
-                      "type": "string",
-                      "maxLength": 2083,
-                      "minLength": 1,
-                      "format": "uri",
-                      "title": "The presigned url",
-                      "description": "The reference to signed url of the image."
-                  }
+              "top": {
+                "type": "integer",
+                "title": "Top Inset",
+                "description": "The space between top edge of the result image and top edge of the placed object image."
               },
-              "type": "object",
-              "title": "PublicBinary"
+              "right": {
+                "type": "integer",
+                "title": "Right Inset",
+                "description": "The space between right edge of the result image and right edge of the placed object image."
+              },
+              "bottom": {
+                "type": "integer",
+                "title": "Bottom Inset",
+                "description": "The space between bottom edge of the result image and bottom edge of the placed object image."
+              }
+            },
+            "type": "object",
+            "title": "PlacementInset"
           },
           "Size": {
               "properties": {
@@ -2348,4 +2329,5 @@
             "title": "ValidationErrorMessage"
           }
       }
+    }
   }
