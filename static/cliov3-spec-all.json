@@ -1547,7 +1547,7 @@
                         }
                     ],
                     "title": "Mask image",
-                    "description": "Mask image which will be used replace the background of the image."
+                    "description": "The mask must be larger than the original image, and its size must match the size of the mask, or the size will be inferred from the mask"
                 }
             },
             "type": "object",
@@ -2001,7 +2001,11 @@
                 "description": "An image of an object that needs to be rendered on a scene.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "mask": {
-                "$ref": "#/components/schemas/PublicBinaryInput",
+                "allOf": [
+                  {
+                      "$ref": "#/components/schemas/PublicBinaryInput"
+                  }
+              ],
                 "title": "Mask image",
                 "description": "Provide a mask that hides part of the object like the background.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               }
@@ -2045,7 +2049,7 @@
                     "minLength": 1,
                     "format": "uri",
                     "title": "The presigned url",
-                    "description": "This URL of an uploaded image"
+                    "description": "This URL of an uploaded image."
                 },
                 "uploadId": {
                     "type": "string",
