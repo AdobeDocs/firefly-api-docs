@@ -1249,6 +1249,24 @@
       }
   },
       "schemas": {
+        "AlignmentHorizontal": {
+          "enum": [
+            "center",
+            "left",
+            "right"
+          ],
+          "title": "AlignmentHorizontal",
+          "description": "An enumeration."
+        },
+        "AlignmentVertical": {
+          "enum": [
+            "center",
+            "top",
+            "bottom"
+          ],
+          "title": "AlignmentVertical",
+          "description": "An enumeration."
+        },
         "ApiError": {
             "properties": {
                     "message": {
@@ -2103,12 +2121,43 @@
                           }
                       ],
                       "title": "Margin values in target size",
-                      "description": "Margin values in target size"
+                      "description": "Margin values in target size."
                   }
               },
+              "alignment": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/PlacementAlignment"
+                  }
+                ],
+                "title": "Alignment",
+                "description": "Specify horizontal and vertical alignment. For horizontal, (0,1,2)=(center, left, right). For vertical, (0,1,2)=(center, top, bottom)."
+              }
+            },
               "type": "object",
-              "required": ["inset"],
               "title": "Placement"
+          },
+          "PlacementAlignment": {
+            "properties": {
+              "horizontal": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AlignmentHorizontal"
+                  }
+                ],
+                "default": "center"
+              },
+              "vertical": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AlignmentVertical"
+                  }
+                ],
+                "default": "center"
+              }
+            },
+            "type": "object",
+            "title": "PlacementAlignment"
           },
           "PlacementInset": {
             "description": "Margin values in target size",
