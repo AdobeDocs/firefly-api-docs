@@ -1464,7 +1464,7 @@
                   }
                 ],
                 "title": "The size",
-                "description": "The size of the requested generations",
+                "description": "Specifies the desired width and height for the final, expanded image.",
                 "default": {
                   "width": 2048,
                   "height": 2048
@@ -1483,7 +1483,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "Image which we want to expand"
+                "description": "The original image to be expanded."
               },
               "placement": {
                 "allOf": [
@@ -1539,7 +1539,8 @@
                     ],
                     "title": "Source image",
                     "description": "Source image which will be used to expand, fill or generate similar images, dimensions of image should not be greater than (4000px X 4000px)"
-                },
+                    "description": "The original image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
+                  },
                 "mask": {
                     "allOf": [
                         {
@@ -1853,7 +1854,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "Input Image to create object composite"
+                "description": "An image of an object that needs to be rendered on a scene."
               },
               "prompt": {
                 "type": "string",
