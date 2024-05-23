@@ -1538,7 +1538,6 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "Source image which will be used to expand, fill or generate similar images, dimensions of image should not be greater than (4000px X 4000px)"
                     "description": "The original image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
                   },
                 "mask": {
