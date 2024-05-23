@@ -1256,7 +1256,7 @@
             "right"
           ],
           "title": "AlignmentHorizontal",
-          "description": "An enumeration."
+          "description": "Specifies the horizontal anchoring of the image within the available space."
         },
         "AlignmentVertical": {
           "enum": [
@@ -1265,7 +1265,7 @@
             "bottom"
           ],
           "title": "AlignmentVertical",
-          "description": "An enumeration."
+          "description": "Specifies the vertical anchoring of the image within the available space."
         },
         "ApiError": {
             "properties": {
@@ -1486,7 +1486,13 @@
                 "description": "Image which we want to expand"
               },
               "placement": {
-                "$ref": "#/components/schemas/Placement"
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Placement"
+                  }
+                ],
+                "title": "Object placement",
+                "description": "Specifies how the image will be positioned and sized in the final generation. The value should describe the placement and dimensions of the image within the output."
               }
             },
             "type": "object",
@@ -1863,7 +1869,7 @@
                   }
                 ],
                 "title": "Object placement",
-                "description": "Determines placement of object in output image."
+                "description": "Specifies how the image will be positioned and sized in the final generation. The value should describe the placement and dimensions of the image within the output."
               }
             },
             "type": "object",
@@ -2133,7 +2139,7 @@
                   }
                 ],
                 "title": "Alignment",
-                "description": "Specify horizontal and vertical alignment. For horizontal, (0,1,2)=(center, left, right). For vertical, (0,1,2)=(center, top, bottom)."
+                "description": "Specifies how the image will be anchored within the available space for each direction. For horizontal, (0,1,2)=(center, left, right). For vertical, (0,1,2)=(center, top, bottom)."
               }
             },
             "type": "object",
