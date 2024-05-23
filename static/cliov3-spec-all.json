@@ -2130,7 +2130,7 @@
                   }
                 ],
                 "title": "Margin values in target size",
-                "description": "Margin values in target size"
+                "description": "Defines the inward displacement applied to the image's edges. This parameter specifies the distance by which each edge of the image will be pushed inward, thereby reducing the visible area by the specified amount on all sides."
               },
               "alignment": {
                 "allOf": [
