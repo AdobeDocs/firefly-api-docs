@@ -1853,7 +1853,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "An image of an object that needs to be rendered on a scene."
+                "description": "An image of an object that needs to be rendered on a scene. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "prompt": {
                 "type": "string",
@@ -1998,7 +1998,7 @@
                   }
                 ],
                 "title": "Source image",
-                "description": "An image of an object that needs to be rendered on a scene.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "An image of an object that needs to be rendered on a scene."
               },
               "mask": {
                 "allOf": [
@@ -2007,7 +2007,7 @@
                   }
               ],
                 "title": "Mask image",
-                "description": "Provide a mask that hides part of the object like the background.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "Provide a mask that hides part of the object like the background."
               }
             },
             "type": "object",
