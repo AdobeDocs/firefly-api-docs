@@ -1851,7 +1851,25 @@
                 ],
                 "title": "Object placement",
                 "description": "Specifies how the image will be positioned and sized in the final generation. You can specify both inset and alignment, only inset, only alignment or none of them."
-              }
+              },
+              "style": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Styles"
+                    }
+                ],
+                "title": "The styles to be used for image generation",
+                "description": "You can specify a preset, a reference image or both"
+            },
+            "contentClass": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/ContentClass"
+                    }
+                ],
+                "title": "The content class",
+                "description": "Will guide the generation to being more photographic or more like art"
+            }
             },
             "type": "object",
             "required": [
