@@ -2168,29 +2168,46 @@
               "required": ["width", "height"],
               "title": "Size"
           },
-          "StructureReference": {
-              "properties": {
-                  "source": {
-                      "allOf": [
-                          {
-                              "$ref": "#/components/schemas/PublicBinaryInput"
-                          }
-                      ],
-                      "title": "A structure reference image",
-                      "description": "Firefly will detect the structure in the image and apply the same in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
-                  },
-                  "strength": {
-                      "type": "integer",
-                      "maximum": 2,
-                      "minimum": 0,
-                      "title": "Adherence Threshold",
-                      "description": "Adjusts adherence to structure reference image. 0 means no adherence. 2 means full adherence.",
-                      "default": 1
-                  }
-              },
-              "type": "object",
-              "title": "StructureReference"
-          },
+          "StructureImageReference": {
+            "properties": {
+                "source": {
+                    "$ref": "#/components/schemas/PublicBinaryInput"
+                }
+            },
+            "type": "object",
+            "title": "StructureImageReference"
+        },
+        "StructureReference": {
+            "properties": {
+                "strength": {
+                    "type": "integer",
+                    "maximum": 100,
+                    "minimum": 0,
+                    "title": "Adherence Threshold",
+                    "description": "Adjusts adherence to structure reference image. 0 means no adherence. 100 means full adherence."
+                },
+                "imageReference": {
+                    "allOf": [
+                        {
+                            "$ref": "#/components/schemas/StructureImageReference"
+                        }
+                    ],
+                    "title": "A structure reference image",
+                    "description": "Firefly will detect the structure in the image and apply the same in the generated image"
+                }
+            },
+            "type": "object",
+            "title": "StructureReference"
+        },
+        "StylesImageReference": {
+            "properties": {
+                "source": {
+                    "$ref": "#/components/schemas/PublicBinaryInput"
+                }
+            },
+            "type": "object",
+            "title": "StylesImageReference"
+        },
           "Styles": {
               "properties": {
                   "presets": {
@@ -2223,6 +2240,19 @@
               "type": "object",
               "title": "Styles"
           },
+          "imageReference": {
+            "allOf": [
+                {
+                    "$ref": "#/components/schemas/StylesImageReference"
+                }
+            ],
+            "title": "A style image reference",
+            "description": "Firefly will detect the style in the image and apply the same style in the generated image"
+        }
+    },
+    "type": "object",
+    "title": "Styles"
+  },
           "UploadResponse": {
               "description": "Upload response",
               "type": "object",
