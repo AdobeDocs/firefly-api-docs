@@ -1730,7 +1730,7 @@
               "tileable": {
                 "type": "boolean",
                 "title": "If the output image should be tileable or not",
-                "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
+                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges."
               },
               "structure": {
                 "allOf": [
@@ -1952,7 +1952,7 @@
               "tileable": {
                 "type": "boolean",
                 "title": "Output image tileability",
-                "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
+                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges."
               }
             },
             "type": "object",
