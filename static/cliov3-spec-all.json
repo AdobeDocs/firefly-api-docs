@@ -2249,10 +2249,8 @@
             "title": "A style image reference",
             "description": "Firefly will detect the style in the image and apply the same style in the generated image"
         }
-    },
-    "type": "object",
-    "title": "Styles"
-  },
+    
+  
           "UploadResponse": {
               "description": "Upload response",
               "type": "object",
@@ -2319,4 +2317,6 @@
             ],
             "title": "ValidationErrorMessage"
           }
+        }
       }
+    }
