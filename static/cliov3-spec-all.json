@@ -2248,9 +2248,7 @@
             ],
             "title": "A style image reference",
             "description": "Firefly will detect the style in the image and apply the same style in the generated image"
-        }
-    
-  
+        },
           "UploadResponse": {
               "description": "Upload response",
               "type": "object",
