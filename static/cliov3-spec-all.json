@@ -1729,7 +1729,7 @@
               "tileable": {
                 "type": "boolean",
                 "title": "If the output image should be tileable or not",
-                "description": "Control to apply noise-rolling during diffusion (required for text2pattern, text2texture)"
+                "description": "An image is tilable if it can be repeated infinitely in any direction without showing visible seams or edges."
               },
               "structure": {
                 "allOf": [
