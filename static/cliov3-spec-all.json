@@ -28,7 +28,7 @@
                   "content": {
                       "application/json": {
                           "schema": {
-                              "$ref": "#/components/schemas/GenerateImagesRequestV3"
+                              "$ref": "#/components/schemas/GenerateImagesRequest"
                           }
                       }
                   },
@@ -40,7 +40,7 @@
                     "content": {
                       "application/json": {
                         "schema": {
-                          "$ref": "#/components/schemas/GenerateImagesResponseV3"
+                          "$ref": "#/components/schemas/GenerateImagesResponse"
                         }
                       }
                     }
@@ -440,7 +440,7 @@
                 "content": {
                   "application/json": {
                     "schema": {
-                      "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                      "$ref": "#/components/schemas/GenerateSimilarImagesRequest"
                     }
                   }
                 },
@@ -452,7 +452,7 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "$ref": "#/components/schemas/GenerateSimilarImagesResponseV3"
+                        "$ref": "#/components/schemas/GenerateSimilarImagesResponse"
                       }
                     }
                   }
@@ -641,7 +641,7 @@
                 "content": {
                   "application/json": {
                     "schema": {
-                      "$ref": "#/components/schemas/ExpandImageRequestV3"
+                      "$ref": "#/components/schemas/ExpandImageRequest"
                     }
                   }
                 },
@@ -653,7 +653,7 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "$ref": "#/components/schemas/ExpandImageResponseV3"
+                        "$ref": "#/components/schemas/ExpandImageResponse"
                       }
                     }
                   }
@@ -842,7 +842,7 @@
                 "content": {
                   "application/json": {
                     "schema": {
-                      "$ref": "#/components/schemas/FillImageRequestV3"
+                      "$ref": "#/components/schemas/FillImageRequest"
                     }
                   }
                 },
@@ -854,7 +854,7 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "$ref": "#/components/schemas/FillImageResponseV3"
+                        "$ref": "#/components/schemas/FillImageResponse"
                       }
                     }
                   }
@@ -1043,7 +1043,7 @@
                 "content": {
                   "application/json": {
                     "schema": {
-                      "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+                      "$ref": "#/components/schemas/GenerateObjectCompositeRequest"
                     }
                   }
                 },
@@ -1055,7 +1055,7 @@
                   "content": {
                     "application/json": {
                       "schema": {
-                        "$ref": "#/components/schemas/GenerateObjectCompositeResponseV3"
+                        "$ref": "#/components/schemas/GenerateObjectCompositeResponse"
                       }
                     }
                   }
@@ -1285,7 +1285,7 @@
             "title": "ApiError",
             "description": "The error within the error response."
           },
-          "BaseInputImageV3": {
+          "BaseInputImage": {
             "properties": {
               "source": {
                 "allOf": [
@@ -1301,12 +1301,12 @@
             "required": [
               "source"
             ],
-            "title": "BaseInputImageV3"
+            "title": "BaseInputImage"
           },
-          "Body_expandImagesV3": {
+          "Body_expandImages": {
             "properties": {
               "request": {
-                "$ref": "#/components/schemas/ExpandImageRequestV3"
+                "$ref": "#/components/schemas/ExpandImageRequest"
               },
               "files": {
                 "items": {
@@ -1322,12 +1322,12 @@
               "request",
               "files"
             ],
-            "title": "Body_expandImagesV3"
+            "title": "Body_expandImages"
           },
-          "Body_fillImagesV3": {
+          "Body_fillImages": {
             "properties": {
               "request": {
-                "$ref": "#/components/schemas/FillImageRequestV3"
+                "$ref": "#/components/schemas/FillImageRequest"
               },
               "files": {
                 "items": {
@@ -1343,12 +1343,12 @@
               "request",
               "files"
             ],
-            "title": "Body_fillImagesV3"
+            "title": "Body_fillImages"
           },
-          "Body_generateImagesV3": {
+          "Body_generateImages": {
             "properties": {
               "request": {
-                "$ref": "#/components/schemas/GenerateImagesRequestV3"
+                "$ref": "#/components/schemas/GenerateImagesRequest"
               },
               "files": {
                 "items": {
@@ -1364,12 +1364,12 @@
               "request",
               "files"
             ],
-            "title": "Body_generateImagesV3"
+            "title": "Body_generateImages"
           },
-          "Body_generateObjectCompositeV3": {
+          "Body_generateObjectComposite": {
             "properties": {
               "request": {
-                "$ref": "#/components/schemas/GenerateObjectCompositeRequestV3"
+                "$ref": "#/components/schemas/GenerateObjectCompositeRequest"
               },
               "files": {
                 "items": {
@@ -1385,12 +1385,12 @@
               "request",
               "files"
             ],
-            "title": "Body_generateObjectCompositeV3"
+            "title": "Body_generateObjectComposite"
           },
-          "Body_generateSimilarImagesV3": {
+          "Body_generateSimilarImages": {
             "properties": {
               "request": {
-                "$ref": "#/components/schemas/GenerateSimilarImagesRequestV3"
+                "$ref": "#/components/schemas/GenerateSimilarImagesRequest"
               },
               "files": {
                 "items": {
@@ -1406,7 +1406,7 @@
               "request",
               "files"
             ],
-            "title": "Body_generateSimilarImagesV3"
+            "title": "Body_generateSimilarImages"
           },
           "ColligoErrorCode": {
             "type": "string",
@@ -1431,13 +1431,12 @@
             "type": "string",
             "enum": [
               "photo",
-              "art",
-              "vector"
+              "art"
             ],
             "title": "ContentClass",
-            "description": "An enumeration."
+            "description": "The content class guides the overall image theme and styles can be applied on top of each content type. If no content type is specified, it is auto-detected. \n | Value | Description\n |:---------- |:------\n | photo | Photorealistic style\n | art | Artistic style\n"
           },
-          "ExpandImageRequestV3": {
+          "ExpandImageRequest": {
             "properties": {
               "numVariations": {
                 "type": "integer",
@@ -1502,7 +1501,7 @@
             ],
             "title": "Images expand payload"
           },
-          "ExpandImageResponseV3": {
+          "ExpandImageResponse": {
             "properties": {
               "size": {
                 "allOf": [
@@ -1554,7 +1553,7 @@
             "type": "object",
             "required": ["source"],
             "title": "ExpandInputImage"        },
-          "FillImageRequestV3": {
+          "FillImageRequest": {
             "properties": {
               "numVariations": {
                 "type": "integer",
@@ -1622,7 +1621,7 @@
             ],
             "title": "Fill images payload"
           },
-          "FillImageResponseV3": {
+          "FillImageResponse": {
             "properties": {
               "size": {
                 "allOf": [
@@ -1650,7 +1649,7 @@
             ],
             "title": "Fill images response."
           },
-          "GenerateImagesRequestV3": {
+          "GenerateImagesRequest": {
             "properties": {
               "numVariations": {
                 "type": "integer",
@@ -1713,19 +1712,10 @@
                 "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
                 "default": 6
               },
-              "photoSettings": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PhotoSettings"
-                  }
-                ],
-                "title": "The photo settings",
-                "description": "This is only valid if contentClass is photo, otherwise it will be ignored"
-              },
               "styleReference": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/StylesV3"
+                    "$ref": "#/components/schemas/Styles"
                   }
                 ],
                 "title": "The styles to be used for image generation",
@@ -1744,7 +1734,7 @@
               "structureReference": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/StructureReferenceV3"
+                    "$ref": "#/components/schemas/StructureReference"
                   }
                 ],
                 "title": "Structure Reference",
@@ -1757,7 +1747,7 @@
             ],
             "title": "Generating images from prompt"
           },
-          "GenerateImagesResponseV3": {
+          "GenerateImagesResponse": {
             "properties": {
               "size": {
                 "allOf": [
@@ -1787,15 +1777,6 @@
                 "title": "The prompt had artists that were blocked",
                 "description": "The user may see that the generation does not comply to its full prompt"
               },
-              "photoSettings": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/PhotoSettings"
-                  }
-                ],
-                "title": "The photo settings used for generation",
-                "description": "Only specified if content class was detected as photo"
-              },
               "contentClass": {
                 "allOf": [
                   {
@@ -1813,7 +1794,7 @@
             ],
             "title": "Generating images from prompt"
           },
-          "GenerateObjectCompositeRequestV3": {
+          "GenerateObjectCompositeRequest": {
             "properties": {
               "numVariations": {
                 "type": "integer",
@@ -1849,7 +1830,7 @@
               "image": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/ObjectCompositeInputImageV3"
+                    "$ref": "#/components/schemas/ObjectCompositeInputImage"
                   }
                 ],
                 "title": "Input Image",
@@ -1879,7 +1860,7 @@
             ],
             "title": "Generate object composite from prompt request"
           },
-          "GenerateObjectCompositeResponseV3": {
+          "GenerateObjectCompositeResponse": {
             "properties": {
               "size": {
                 "allOf": [
@@ -1907,7 +1888,7 @@
             ],
             "title": "Generate object composite from prompt response"
           },
-          "GenerateSimilarImagesRequestV3": {
+          "GenerateSimilarImagesRequest": {
             "properties": {
               "numVariations": {
                 "type": "integer",
@@ -1943,7 +1924,7 @@
               "image": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/BaseInputImageV3"
+                    "$ref": "#/components/schemas/BaseInputImage"
                   }
                 ],
                 "title": "The reference image",
@@ -1961,7 +1942,7 @@
             ],
             "title": "Generating similar images from a reference image"
           },
-          "GenerateSimilarImagesResponseV3": {
+          "GenerateSimilarImagesResponse": {
             "properties": {
               "size": {
                 "allOf": [
@@ -1989,7 +1970,7 @@
             ],
             "title": "Generating similar images response"
           },
-          "ObjectCompositeInputImageV3": {
+          "ObjectCompositeInputImage": {
             "properties": {
               "source": {
                 "allOf": [
@@ -2014,7 +1995,7 @@
             "required": [
               "source"
             ],
-            "title": "ObjectCompositeInputImageV3"
+            "title": "ObjectCompositeInputImage"
           },
           "InputImage": {
               "properties": {
@@ -2219,7 +2200,7 @@
               "required": ["width", "height"],
               "title": "Size"
           },
-          "StructureReferenceV3": {
+          "StructureReference": {
               "properties": {
                   "source": {
                       "allOf": [
@@ -2242,7 +2223,7 @@
               "type": "object",
               "title": "StructureReference"
           },
-          "StylesV3": {
+          "Styles": {
               "properties": {
                   "presets": {
                       "items": {
