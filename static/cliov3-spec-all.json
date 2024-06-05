@@ -1730,7 +1730,8 @@
               "tileable": {
                 "type": "boolean",
                 "title": "If the output image should be tileable or not",
-                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges."
+                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
+                "default": "false"
               },
               "structure": {
                 "allOf": [
@@ -1740,6 +1741,7 @@
                 ],
                 "title": "Structure Reference",
                 "description": "Image which will be used for as a reference for structure to have a controlled generation"
+                "description": "Use structure to ensure the generated image maintains a similar layout and organization as the reference image, providing a cohesive and visually balanced result."
               }
             },
             "type": "object",
@@ -2203,7 +2205,7 @@
                     "maximum": 100,
                     "minimum": 0,
                     "title": "Adherence Threshold",
-                    "description": "Adjusts adherence to structure reference image. 0 means no adherence. 100 means full adherence."
+                    "description": "Control the amount of adherence to the reference image when generating the image variations. 0 means no adherence. 100 means full adherence."
                 },
                 "imageReference": {
                     "allOf": [
@@ -2212,7 +2214,7 @@
                         }
                     ],
                     "title": "A structure reference image",
-                    "description": "Firefly will detect the structure in the image and apply the same in the generated image"
+                    "description": "An image with a structure you want to use as a reference for generating image variations."
                 }
             },
             "type": "object",
