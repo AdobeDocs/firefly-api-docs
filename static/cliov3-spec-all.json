@@ -1947,8 +1947,8 @@
                     "$ref": "#/components/schemas/BaseInputImage"
                   }
                 ],
-                "title": "The reference image",
-                "description": "Firefly will create similar variations based on the reference input image."
+                "title": "Reference image",
+                "description": "Firefly will generate similar variations based on the reference input image."
               },
               "tileable": {
                 "type": "boolean",
