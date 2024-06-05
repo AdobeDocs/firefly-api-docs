@@ -20,9 +20,9 @@
   "paths": {
       "/v3/images/generate": {
           "post": {
-              "summary": "Generate images API",
+              "summary": "Generate Images API",
               "operationId": "generateImages",
-              "description": "Generate images based on a prompt with optional reference image to match style.",
+              "description": "Generate images based on a prompt with optional reference image to match style and structure.",
               "requestBody": {
                   "description": "image generation request body.",
                   "content": {
@@ -1719,7 +1719,7 @@
                   }
                 ],
                 "title": "The styles to be used for image generation",
-                "description": "You can specify a preset, a reference image or both"
+                "description": "You can specify a preset, a reference image or both."
               },
               "promptBiasingLocaleCode": {
                 "type": "string",
@@ -2237,7 +2237,7 @@
                       "type": "array",
                       "uniqueItems": true,
                       "title": "The style presets",
-                      "description": "You can specify an ID for a style"
+                      "description": "You can specify a preset ID for a style. Refer to Image Model Styles under Concepts for the list of supported <code>Preset IDs</code>. "
                   },
                   "source": {
                       "allOf": [
