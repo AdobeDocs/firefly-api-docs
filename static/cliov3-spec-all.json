@@ -1481,8 +1481,8 @@
                     "$ref": "#/components/schemas/ExpandInputImage"
                   }
                 ],
-                "title": "Input Image",
-                "description": "The image to be expanded.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "title": "Input image",
+                "description": "The image to be expanded."
 
               },
               "placement": {
@@ -1538,7 +1538,7 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "The image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
+                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px). \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                 "mask": {
                     "allOf": [
