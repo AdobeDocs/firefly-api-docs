@@ -1294,7 +1294,7 @@
                   }
                 ],
                 "title": "Source image",
-                "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>."
+                "description": "Source image which will be used to expand, fill or generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               }
             },
             "type": "object",
@@ -1729,7 +1729,7 @@
               },
               "tileable": {
                 "type": "boolean",
-                "title": "If the output image should be tileable or not",
+                "title": "Output image tileability",
                 "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
                 "default": "false"
               },
@@ -1948,12 +1948,13 @@
                   }
                 ],
                 "title": "The reference image",
-                "description": "Firefly will create similar variations"
+                "description": "Firefly will create similar variations based on the source input image."
               },
               "tileable": {
                 "type": "boolean",
                 "title": "Output image tileability",
-                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges."
+                "description": "An image is tileable if it can be repeated infinitely in any direction without showing visible seams or edges.",
+                "default": "false"            
               }
             },
             "type": "object",
