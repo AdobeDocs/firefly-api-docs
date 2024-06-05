@@ -1687,7 +1687,8 @@
                 "maxLength": 1024,
                 "minLength": 1,
                 "title": "The prompt",
-                "description": "The prompt used to generate the image. The longer the prompt - the better"
+                "description": "The prompt used to generate the image. The longer the prompt - the better",
+                "examples": ["Horses in a field."]
               },
               "negativePrompt": {
                 "type": "string",
@@ -1702,15 +1703,14 @@
                   }
                 ],
                 "title": "The content class",
-                "description": "Will guide the generation to being more photographic or more like art"
+                "description": "Will guide the generation to being more photographic or more like art."
               },
               "visualIntensity": {
                 "type": "integer",
                 "maximum": 10,
                 "minimum": 2,
                 "title": "Visual Intensity",
-                "description": "Adjusts the overall intensity of your photo's existing visual characteristic",
-                "default": 6
+                "description": "Adjusts the overall intensity of your photo's existing visual characteristics."
               },
               "style": {
                 "allOf": [
