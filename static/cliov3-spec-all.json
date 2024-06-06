@@ -2246,8 +2246,7 @@
                       "maximum": 100,
                       "exclusiveMinimum": 0,
                       "title": "The strength of the style",
-                      "description": "The strength of the style to be applied.",
-                      "default": 50
+                      "description": "The strength of the style to be applied."
                   },
           "imageReference": {
             "allOf": [
