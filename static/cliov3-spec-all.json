@@ -1900,7 +1900,17 @@
                 "minItems": 1,
                 "title": "The list of images",
                 "description": "Each image will have a storage item."
+              },
+              "contentClass": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentClassV3"
+                  }
+                ],
+                "title": "The detected content class",
+                "description": "Will be same as input, if input was specified"
               }
+            }
             },
             "type": "object",
             "required": [
