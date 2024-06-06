@@ -1904,13 +1904,12 @@
               "contentClass": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/ContentClassV3"
+                    "$ref": "#/components/schemas/ContentClass"
                   }
                 ],
                 "title": "The detected content class",
                 "description": "Will be same as input, if input was specified"
               }
-            }
             },
             "type": "object",
             "required": [
