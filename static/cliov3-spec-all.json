@@ -1492,7 +1492,7 @@
                   }
                 ],
                 "title": "Object placement",
-                "description": "Specifies how the image will be positioned and sized in the final generation. The value should describe the placement and dimensions of the image within the output."
+                "description": "Specifies how the source image will be positioned and sized in the final generation. The value should describe the placement and dimensions of the image within the output. <p><strong>Note:</strong> Placement for source images cannot be used when a mask image is being applied.</p>"
               }
             },
             "type": "object",
