@@ -18,7 +18,7 @@
       }
   ],
   "paths": {
-      "/v3/images/generate": {
+      "/v3/image/generate": {
           "post": {
               "summary": "Generate Images API",
               "operationId": "generateImages",
@@ -431,7 +431,7 @@
               }
           }
       },
-      "/v3/images/generate-similar": {
+      "/v3/image/generate-similar": {
           "post": {
               "summary": "Generate Similar Images API",
               "operationId": "generateSimilarImages",
@@ -632,7 +632,7 @@
               }
           }
       },
-      "/v3/images/expand": {
+      "/v3/image/expand": {
           "post": {
               "summary": "Expand Image API",
               "operationId": "expandImage",
@@ -833,7 +833,7 @@
               }
           }
       },
-      "/v3/images/fill": {
+      "/v3/image/fill": {
           "post": {
               "summary": "Fill Image API",
               "operationId": "fillImage",
@@ -1034,7 +1034,7 @@
               }
           }
       },
-      "/v3/images/generate-object-composite": {
+      "/v3/image/generate-object-composite": {
           "post": {
               "summary": "Generate Object Composite API",
               "operationId": "generateObjectComposite",
