@@ -1453,6 +1453,7 @@
                 "maxItems": 4,
                 "minItems": 1,
                 "uniqueItems": true,
+                "default": 0,
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
@@ -1570,6 +1571,7 @@
                 "type": "array",
                 "maxItems": 4,
                 "minItems": 1,
+                "default": 0,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
@@ -1666,6 +1668,7 @@
                 "type": "array",
                 "maxItems": 4,
                 "minItems": 1,
+                "default": 0,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations."
@@ -1813,6 +1816,7 @@
                 "type": "array",
                 "maxItems": 4,
                 "minItems": 1,
+                "default": 0,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
@@ -1934,6 +1938,7 @@
                 "type": "array",
                 "maxItems": 4,
                 "minItems": 1,
+                "default": 0,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
