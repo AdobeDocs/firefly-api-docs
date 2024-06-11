@@ -1532,7 +1532,7 @@
           "ExpandInputImage": {
             "properties": {
                 "source": {
-                    "allOf": [
+                    "oneOf": [
                         {
                             "$ref": "#/components/schemas/PublicBinaryInput"
                         }
