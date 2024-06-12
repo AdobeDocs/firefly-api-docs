@@ -2075,7 +2075,8 @@
                 }
             },
             "type": "object",
-            "title": "PublicBinaryInput"
+            "title": "PublicBinaryInput",
+            "description": " You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image."
           },
         "PublicBinaryOutput": {
           "properties": {
