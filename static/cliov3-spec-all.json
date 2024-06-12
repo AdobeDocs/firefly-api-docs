@@ -2013,7 +2013,7 @@
                   }
                 ],
                 "title": "Source image",
-                "description": "An image of an object that needs to be rendered on a scene."
+                "description": "An image of an object that needs to be rendered on a scene. Dimensions of image should not be greater than (4000px X 4000px)."
               },
               "mask": {
                 "allOf": [
