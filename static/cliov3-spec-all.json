@@ -1462,8 +1462,7 @@
                     "$ref": "#/components/schemas/Size"
                   }
                 ],
-                "title": "The size",
-                "description": "Specifies the desired width and height for the final, expanded image.",
+                "description": "Specifies the desired width and height for the final, expanded image. Supported dimensions for the expanded image. \n  | Dimensions | Description | \n  | -----------| ----- |\n  | { \"width\": 2048, \"height\": 2048} | Square (1:1) |\n  | { \"width\": 2304, \"height\": 1792 } | Landscape (4:3) |\n  | { \"width\": 1792, \"height\": 2304 } | Portrait (3:4) | \n  | { \"width\": 2688, \"height\": 1536 } | Widescreen (16:9) |\n",
                 "default": {
                   "width": 2048,
                   "height": 2048
@@ -2194,7 +2193,6 @@
                       "title": "The height of the output image"
                   }
               },
-              "description": "Dimensions of the generated image\n  | Dimensions | Description | \n  | -----------| ----- |\n  | { \"width\": 2048, \"height\": 2048} | Square (1:1) |\n  | { \"width\": 2304, \"height\": 1792 } | Landscape (4:3) |\n  | { \"width\": 1792, \"height\": 2304 } | Portrait (3:4) | \n  | { \"width\": 2688, \"height\": 1536 } | Widescreen (16:9) |\n",
               "type": "object",
               "required": ["width", "height"],
               "title": "Size"
