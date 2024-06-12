@@ -1608,7 +1608,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "Input image to fill with generative content."
+                "description": "Input image to fill with generative content.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "promptBiasingLocaleCode": {
                 "type": "string",
@@ -2041,7 +2041,7 @@
                           }
                       ],
                       "title": "Input image",
-                      "description": "Upload an image you want to fill. Dimensions of image should not be greater than (4000px X 4000px).  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                      "description": "Upload an image you want to fill. Dimensions of image should not be greater than (4000px X 4000px)."
                   },
                   "mask": {
                       "allOf": [
@@ -2050,7 +2050,7 @@
                           }
                       ],
                       "title": "Mask image",
-                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px."
                   }
               },
               "type": "object",
