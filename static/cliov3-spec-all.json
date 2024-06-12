@@ -1962,7 +1962,7 @@
                   }
                 ],
                 "title": "Reference image",
-                "description": "Firefly will generate similar variations based on the reference input image."
+                "description": "Firefly will generate similar variations based on the reference input image. Dimensions of image should not be greater than (4000px X 4000px)."
               },
               "tileable": {
                 "type": "boolean",
