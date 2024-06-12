@@ -1690,14 +1690,14 @@
                 "maxLength": 1024,
                 "minLength": 1,
                 "title": "The prompt",
-                "description": "The prompt used to generate the image. The longer the prompt - the better",
+                "description": "The prompt used to generate the image. The longer the prompt - the better.",
                 "examples": ["Horses in a field."]
               },
               "negativePrompt": {
                 "type": "string",
                 "maxLength": 1024,
                 "title": "Avoid prompt",
-                "description": "Inference will try to generate against this prompt"
+                "description": "Inference will try to generate against this prompt."
               },
               "contentClass": {
                 "allOf": [
@@ -2227,7 +2227,7 @@
                         }
                     ],
                     "title": "A structure reference image",
-                    "description": "An image with a structure you want to use as a reference for generating image variations. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                    "description": "An image with a structure you want to use as a reference for generating image variations.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                 }
             },
             "type": "object",
