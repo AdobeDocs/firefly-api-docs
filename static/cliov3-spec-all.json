@@ -1294,7 +1294,7 @@
                   }
                 ],
                 "title": "Source image",
-                "description": "Source of the reference image used to generate similar images.\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "Source of the reference image used to generate similar images.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               }
             },
             "type": "object",
@@ -1538,7 +1538,7 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px).\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px).  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                 "mask": {
                     "allOf": [
@@ -1840,7 +1840,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "An image of an object that needs to be rendered on a scene. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "An image of an object that needs to be rendered on a scene.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "prompt": {
                 "type": "string",
@@ -2041,7 +2041,7 @@
                           }
                       ],
                       "title": "Input image",
-                      "description": "Upload an image you want to fill. Dimensions of image should not be greater than (4000px X 4000px).\n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                      "description": "Upload an image you want to fill. Dimensions of image should not be greater than (4000px X 4000px).  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   },
                   "mask": {
                       "allOf": [
@@ -2050,7 +2050,7 @@
                           }
                       ],
                       "title": "Mask image",
-                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                      "description": "Mask image which will be used replace the background of the image.<br><strong>Note:</strong> The minimum accepted size for the larger side of the image is 600 px.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                   }
               },
               "type": "object",
@@ -2228,7 +2228,7 @@
                         }
                     ],
                     "title": "A structure reference image",
-                    "description": "An image with a structure you want to use as a reference for generating image variations.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                    "description": "An image with a structure you want to use as a reference for generating image variations.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
                 }
             },
             "type": "object",
@@ -2268,7 +2268,7 @@
                 }
             ],
             "title": "A style image reference",
-            "description": "Firefly will detect the style in the image and apply the same style in the generated image. \n<strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request.\nThe allow-listed domains are as follows:\n<ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+            "description": "Firefly will detect the style in the image and apply the same style in the generated image.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
         }
       },
     "type": "object",
