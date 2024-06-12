@@ -2184,13 +2184,14 @@
                       "type": "integer",
                       "maximum": 2688,
                       "minimum": 1,
-                      "title": "The width of the output image"
+                      "enum" : [2688,1344], 
+                      "title": "The desired width of the output image."
                   },
                   "height": {
                       "type": "integer",
                       "maximum": 2688,
                       "minimum": 1,
-                      "title": "The height of the output image"
+                      "title": "The desired height of the output image."
                   }
               },
               "type": "object",
