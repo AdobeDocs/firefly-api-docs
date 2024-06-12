@@ -1482,7 +1482,7 @@
                   }
                 ],
                 "title": "Input image",
-                "description": "The image to be expanded.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "The image to be expanded. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "placement": {
                 "allOf": [
@@ -1537,7 +1537,7 @@
                         }
                     ],
                     "title": "Source image",
-                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px). You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image."
+                    "description": "Source of the image to be expanded. Dimensions of image should not be greater than (4000px X 4000px)."
                   },
                 "mask": {
                     "allOf": [
@@ -1546,7 +1546,7 @@
                         }
                     ],
                     "title": "Mask image",
-                    "description": "Defines the expanding area where the source image should expand towards. Mask has to be larger than the source image, and the target size has to match the size of the mask, or it will be inferred from the mask. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image."
+                    "description": "Defines the expanding area where the source image should expand towards. Mask has to be larger than the source image, and the target size has to match the size of the mask, or it will be inferred from the mask."
                 }
             },
             "type": "object",
@@ -1607,7 +1607,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "Input image to fill with generative content.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "Input image to fill with generative content. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image. \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "promptBiasingLocaleCode": {
                 "type": "string",
@@ -1839,7 +1839,7 @@
                   }
                 ],
                 "title": "Input Image",
-                "description": "An image of an object that needs to be rendered on a scene.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
+                "description": "An image of an object that needs to be rendered on a scene. You can either use a <code>url</code> or an <code>uploadId</code> as the source for the input image.  \n  <strong>Note</strong>: Only allow listed domains are allowed to be accepted as input URL in the request. The allow-listed domains are as follows:  \n  <ul><li><code>amazonaws.com</code></li><li><code>windows.net</code></li><li><code>dropboxusercontent.com</code></li></ul>"
               },
               "prompt": {
                 "type": "string",
