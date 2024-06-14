@@ -1463,11 +1463,7 @@
                     "$ref": "#/components/schemas/expandSize"
                   }
                 ],
-                "description": "Specifies the desired width and height for the final, expanded image. The dimensions of the desired image should be less than 4000px by 4000px.",
-                "default": {
-                  "width": 2048,
-                  "height": 2048
-                }
+                "description": "Specifies the desired width and height for the final, expanded image."
               },
               "prompt": {
                 "type": "string",
