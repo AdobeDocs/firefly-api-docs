@@ -1948,7 +1948,7 @@
                   }
                 ],
                 "title": "Reference image",
-                "description": "Firefly will generate similar variations based on the reference input image. Dimensions of image should not be greater than (4000px X 4000px)."
+                "description": "Firefly will generate similar variations based on the reference input image."
               },
               "tileable": {
                 "type": "boolean",
@@ -2000,7 +2000,7 @@
                   }
                 ],
                 "title": "Source image",
-                "description": "An image of an object that needs to be rendered on a scene. Dimensions of image should not be greater than (4000px X 4000px)."
+                "description": "An image of an object that needs to be rendered on a scene."
               },
               "mask": {
                 "allOf": [
@@ -2027,7 +2027,7 @@
                           }
                       ],
                       "title": "Input image",
-                      "description": "Upload an image you want to fill. Dimensions of image should not be greater than (4000px X 4000px)."
+                      "description": "Upload an image you want to fill."
                   },
                   "mask": {
                       "allOf": [
