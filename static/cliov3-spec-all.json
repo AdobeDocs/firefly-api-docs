@@ -1460,7 +1460,7 @@
               "size": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/Size"
+                    "$ref": "#/components/schemas/expandSize"
                   }
                 ],
                 "description": "Specifies the desired width and height for the final, expanded image. The dimensions of the desired image should be less than 4000px by 4000px.",
@@ -2189,6 +2189,28 @@
               "required": ["width", "height"],
               "title": "Size"
           },
+          "expandSize": {
+            "properties": {
+              "width": {
+                "type": "integer",
+                "maximum": 4000,
+                "minimum": 1,
+                "title": "The width of the output image"
+              },
+              "height": {
+                "type": "integer",
+                "maximum": 4000,
+                "minimum": 1,
+                "title": "The height of the output image"
+              }
+            },
+          "type": "object",
+          "required": [
+            "width",
+            "height"
+          ],
+          "title": "Size"
+        },
           "StructureImageReference": {
             "properties": {
                 "source": {
