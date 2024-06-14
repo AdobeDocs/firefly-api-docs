@@ -1460,7 +1460,7 @@
               "size": {
                 "allOf": [
                   {
-                    "$ref": "#/components/schemas/expandSize"
+                    "$ref": "#/components/schemas/Size"
                   }
                 ],
                 "description": "Specifies the desired width and height for the final, expanded image.",
@@ -2189,28 +2189,6 @@
               "required": ["width", "height"],
               "title": "Size"
           },
-          "expandSize": {
-            "properties": {
-              "width": {
-                "type": "integer",
-                "maximum": 4000,
-                "minimum": 1,
-                "title": "The width of the output image"
-              },
-              "height": {
-                "type": "integer",
-                "maximum": 4000,
-                "minimum": 1,
-                "title": "The height of the output image"
-              }
-            },
-          "type": "object",
-          "required": [
-            "width",
-            "height"
-          ],
-          "title": "Size"
-        },
           "StructureImageReference": {
             "properties": {
                 "source": {
