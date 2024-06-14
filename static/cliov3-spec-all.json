@@ -1454,7 +1454,7 @@
                 "minItems": 1,
                 "uniqueItems": true,
                 "title": "The seed of each variation",
-                "default" : 0,
+                "default" : [ 0 ],
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
               "size": {
@@ -1570,22 +1570,9 @@
                 "maxItems": 4,
                 "minItems": 1,
                 "uniqueItems": true,
-                "default" : 0,
+                "default" : [ 0 ],
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
-              },
-              "size": {
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/Size"
-                  }
-                ],
-                "title": "The size",
-                "description": "The size of the requested generations. The supported dimensions for image generations are: \n  | Dimensions | Description | \n  | -----------| ----- |\n  | { \"width\": 2048, \"height\": 2048} | Square (1:1) |\n  | { \"width\": 2304, \"height\": 1792 } | Landscape (4:3) |\n  | { \"width\": 1792, \"height\": 2304 } | Portrait (3:4) | \n  | { \"width\": 2688, \"height\": 1536 } | Widescreen (16:9) |  \n  | { \"width\": 1344, \"height\": 768 } |(7:4) |  \n  |{ \"width\": 1152, \"height\": 896 } |(9:7) |  \n  |{ \"width\": 896, \"height\": 1152 } |(7:9) |  \n  | { \"width\": 1024, \"height\": 1024} | Square (1:1) |",
-                "default": {
-                  "width": 2048,
-                  "height": 2048
-                }
               },
               "prompt": {
                 "type": "string",
@@ -1667,7 +1654,7 @@
                 "maxItems": 4,
                 "minItems": 1,
                 "uniqueItems": true,
-                "default" : 0,
+                "default" : [ 0 ],
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations."
               },
@@ -1815,7 +1802,7 @@
                 "maxItems": 4,
                 "minItems": 1,
                 "uniqueItems": true,
-                "default" : 0,
+                "default" : [ 0 ],
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
@@ -1937,7 +1924,7 @@
                 "maxItems": 4,
                 "minItems": 1,
                 "uniqueItems": true,
-                "default" : 0,
+                "default" : [ 0 ],
                 "title": "The seed of each variation",
                 "description": "Array of seed(s) that ensure consistent image generation across multiple API calls. For example, you can use the same seed to generate a similar image with different styles. If specified alongside with numVariations, the number of seeds must be the equal to numVariations"
               },
