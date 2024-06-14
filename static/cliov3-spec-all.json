@@ -1463,7 +1463,11 @@
                     "$ref": "#/components/schemas/expandSize"
                   }
                 ],
-                "description": "Specifies the desired width and height for the final, expanded image."
+                "description": "Specifies the desired width and height for the final, expanded image.",
+                "default": {
+                  "width": 2048,
+                  "height": 2048
+                }
               },
               "prompt": {
                 "type": "string",
